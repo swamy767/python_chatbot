@@ -154,7 +154,8 @@
         "How to contact college",
         "College telephone number",
         "College number",
-        "contact details","contact",
+        "contact details",
+        "contact",
         "What is your contact number",
         "Contact number?",
         "How to call you",
@@ -168,148 +169,447 @@
         "Phone number",
         "Phone no",
         "What is your email address",
-        "Email address",  "Email",
-        "Email id",   "Contact email",
+        "Email address",
+        "Email",
+        "Email id",
+        "Contact email",
         "mail",
         "Call",
         "Contact details"
       ],
       "responses": [
-        "You can contact : 9866308422, 9866308423, 08514-275203  and email:  principal.9@jntua.ac.in,  principal@rgmcet.edu.in"
+        "You can contact :chandrashekharmc@ssit.edu.in,principal@ssit.edu.in"
       ],
       "context_set": ""
     },
     {
-      "tag": "course",
+      "tag": "ece_extra_courses",
       "patterns": [
-        "list of courses",
-        "list of courses offered",
-        "list of courses offered in",
-        "what are the courses offered in your college?",
-        "what are the branches offered in your college?",
-        "courses?","branches",
-        "branches offered",
-        "courses offered",
-        "courses offered in RGM",
-        "courses you offer",
-        "branches offered in RGM",
-        "branches?",
-        "courses available at RGM?",
-        "branches available at your college?",
-        "what are the courses in RGM?",
-        "what are branches in RGM?",
-        "what are courses in RGM",
-        "branches available in RGM?",
-        "can you tell me the courses available in RGM?",
-        "can you tell me the branches available in RGM?"
-        
+        "what extra courses are available in ece?",
+        "extra courses in ece branch",
+        "what are additional trainings in ece?",
+        "does ece have extra training programs?",
+        "tell me extra courses in ece",
+        "what extra skills can ece students learn?",
+        "are there any additional programs in ece?",
+        "what trainings are provided for ece students?",
+        "ece extra activities?",
+        "extra learning in ece branch",
+        "what are extra opportunities in ece?",
+        "does ece provide industrial training?",
+        "is there vlsi training in ece?",
+        "do ece students get embedded training?",
+        "what is included in ece training?",
+        "additional courses for ece students?",
+        "what skill programs are there in ece?",
+        "are there hobby projects in ece?",
+        "does ece include industrial visits?",
+        "training programs in ece branch?",
+        "what extra programs are in ece department?",
+        "what are add-on courses in ece?",
+        "ece branch extra learning options?",
+        "what certifications are available in ece?",
+        "extra activities for ece students?",
+        "what workshops are available in ece?",
+        "does ece offer practical training?",
+        "what kind of training is given in ece?",
+        "are there special courses in ece?",
+        "what are value added courses in ece?",
+        "ece branch training details",
+        "what additional support is given in ece?",
+        "what are technical trainings in ece?",
+        "are there projects in ece branch?",
+        "does ece provide industry exposure?",
+        "what are the benefits of ece branch?",
+        "what kind of programs are in ece?",
+        "ece branch opportunities?",
+        "training and development in ece?",
+        "what are co-curricular activities in ece?",
+        "does ece have skill development programs?",
+        "are there internships in ece?",
+        "ece branch practical exposure?",
+        "what hands-on training is available in ece?",
+        "are there technical clubs in ece?",
+        "ece department extra programs?",
+        "does ece include lab training?",
+        "what are advanced courses in ece?",
+        "ece learning beyond syllabus?",
+        "what are industry oriented programs in ece?",
+        "extra learning platforms in ece?",
+        "what are training modules in ece?",
+        "ece branch extra facilities?",
+        "what kind of real world exposure in ece?",
+        "are there seminars in ece?",
+        "what are skill-based courses in ece?",
+        "does ece provide certification courses?",
+        "what additional subjects in ece?",
+        "ece branch add-on training?",
+        "what are extra curriculum in ece?",
+        "does ece include workshops?",
+        "what are training opportunities in ece?",
+        "what extra knowledge can ece students gain?",
+        "ece department special training?",
+        "what are advanced learning options in ece?",
+        "ece branch training and projects?",
+        "what kind of projects are in ece?",
+        "are there innovation programs in ece?",
+        "what are ece branch benefits?",
+        "what are extra courses offered in ece branch?",
+        "ece extra training list?",
+        "what programs improve skills in ece?",
+        "ece branch development programs?",
+        "what are additional technical skills in ece?",
+        "ece branch co-curricular activities?",
+        "what are the best trainings in ece?",
+        "what practical knowledge is given in ece?",
+        "what are industry trainings in ece?",
+        "does ece have real time projects?",
+        "ece branch extra curriculum activities?",
+        "what are the technical enhancements in ece?",
+        "what are add-on certifications in ece?",
+        "does ece support innovation?",
+        "what are project based learnings in ece?",
+        "ece branch workshops and training?",
+        "what kind of lab exposure in ece?",
+        "what are extra features of ece branch?",
+        "ece department training details?",
+        "what are career support programs in ece?",
+        "what are hands-on projects in ece?",
+        "what are industrial exposure programs in ece?",
+        "ece branch value added programs?",
+        "what are technical training courses in ece?",
+        "what extra knowledge is given in ece branch?",
+        "what are practical courses in ece?",
+        "ece branch real world training?",
+        "what are additional learning resources in ece?"
       ],
       "responses": [
-        "Our college offers Computer Science and Engineering and its allied courses Bussiness Systems,Data Science Cybersecurity, Artificial Intelligence, Mechanical engineering,Electrical engineering,Electronics and Commmunication Engineering, Civil engineering."
+        "In the ECE branch, students get additional learning opportunities such as TNS India training, industrial visits, hobby projects, embedded systems training, and VLSI training to enhance their practical and technical skills."
       ],
       "context_set": ""
     },
     {
       "tag": "fees",
       "patterns": [
-        "information about fee",
-        "information on fee",
-        "tell me the fee",
-        "college fee",
-        "fee per semester",
-        "what is the fee of each semester",
-        "what is the fees of each year",
-        "what is fee",
-        "what is the fees",
-        "how much is the fees",
-        "fees for first year",
-        "fees",
-        "about the fees",
-        "tell me something about the fees",
-        "What is the fees of hostel",
-        "how much is the fees",
-        "hostel fees",
+        "ssit college fees",
+        "how much is ssit fee",
+        "Fees - Overall",
+        "fee structure of ssit",
+        "fees for AC room for boys",
+        "ssit yearly fee",
         "fees for AC room",
-        "fees for non-AC room",
-        "fees for Ac room for girls",
-        "fees for non-Ac room for girls",
-        "fees for Ac room for boys",
-        "fees for non-Ac room for boys"
+        "fees",
+        "what is the fee of each semester",
+        "Fees - Tuition Fees",
+        "ssit hostel fees",
+        "college fee",
+        "what is the fee structure of ssit",
+        "information on fee",
+        "how much is the fees",
+        "what is the hostel fee",
+        "fees for hostel",
+        "what is the fees",
+        "tell me something about the fees",
+        "fees for non AC room",
+        "information about fee",
+        "about the fees",
+        "what is the fees of each year",
+        "fees for non AC room for girls",
+        "fees for first year",
+        "ssit semester fee",
+        "what is fee",
+        "hostel fees",
+        "fees for AC room for girls",
+        "fees for non AC room for boys",
+        "ssit fees",
+        "fee per semester",
+        "tell me the fee"
       ],
       "responses": [
-        "For Fee detail visit <a target=\"_blank\" href=\"http://www.ipu.ac.in/Pubinfo2019/Admission2019mian/adm2019main.htm/\"> here</a>",
-        "For Fee detail visit <a target=\"_blank\" href=\"https://www.rgmcet.edu.in/feestructure\"> here</a>"
+        "For SSIT fee details, please visit <a target=\"_blank\" href=\"https://ssit.edu.in/\">here</a>."
       ],
       "context_set": ""
     },
     {
       "tag": "location",
       "patterns": [
-        "where is the college located",
-        "college is located at",
-        "where is college",
-        "where is college located",
-        "address of college",
-        "how to reach college",
+        "ssit location",
+        "ssit maralur address",
+        "ssit campus location",
+        "give me ssit address",
+        "where can I find ssit",
         "college location",
+        "directions to ssit",
+        "where is college",
+        "where is ssit college",
+        "ssit address",
+        "how to go to ssit",
+        "college address in tumkur",
+        "ssit is in which place",
+        "address with pincode ssit",
+        "Location - Address",
+        "engineering college in saraswathipuram tumkur",
+        "exact location of ssit",
+        "where is ssit tumkur",
+        "where is ssit maralur post",
+        "nearest landmark of ssit",
+        "Location - Transport",
+        "tell me ssit location",
+        "how do I reach ssit college",
+        "location of ssit tumkur",
+        "what is the address of ssit",
+        "ssit tumkur address",
+        "address of ssit",
+        "where is the college located",
+        "where exactly is ssit",
+        "map location of ssit",
+        "which city is ssit in",
+        "Location - Map",
+        "location details of ssit",
+        "where is ssit",
+        "tell me address of ssit",
+        "Location - Overall",
+        "ssit college is in which area",
+        "ssit google map link",
+        "what is ssit full address",
         "college address",
-        "location of RGM",
+        "where is ssit located",
         "wheres the college",
+        "how to reach ssit",
+        "college is located at",
+        "location of ssit",
         "how can I reach college",
-        "whats is the college address",
-        "what is the address of college",
-        "address",
-        "Directions to college",
-        "location"
+        "route to ssit",
+        "ssit karnataka address",
+        "map link for ssit",
+        "tumkur ssit location",
+        "where is ssit in karnataka",
+        "how far is ssit",
+        "address of college",
+        "ssit college directions"
       ],
       "responses": [
-        "Address-  Nerawada, X' Roads, Nandyala, Andhra Pradesh 518501,\n Click on this <a target=\"_blank\" href=\"https://maps.app.goo.gl/goVro4JcJnKJJ8R67\">link </a> to view our college in maps."
+        "SSIT (Sri Siddhartha Institute of Technology) is located at Saraswathipuram, Maralur Post, Tumkur, Karnataka - 572105. You can view the location on Google Maps here: <a target=\"_blank\" href=\"https://maps.google.com/?q=SSIT+Tumkur\">Click here</a>."
       ],
       "context_set": ""
     },
     {
-      "tag": "hostel",
+      "tag": "hostel_fees",
       "patterns": [
-        "Hostel",
-        "hostel fee",
-        "hostel details",
-        "hostel facility",
-        "hostel servive",
-        "hostel location",
-        "hostel address","Does college provide hostel",
-        "Is there any hostel",
-        "Where is hostel",
-        "do you have hostel",
-        "do you guys have hostel",
-        "hostel",
-        "hostel capacity",
-        "what is the hostel fee",
-        "how to get in hostel",
-        "what is the hostel address",
-        "how far is hostel from college",
-        "hostel college distance",
-        "where is the hostel",
-        "how big is the hostel",
-        "distance between college and hostel",
-        "distance between hostel and college",        
-        "hostel facilities",
-        "hostel fees",
-        "hostel rooms",
-        "hostel room types",
-        "hostel mess",
-        "hostel fee structure",
-        "hostel fee details",
-        "hostel fee per semester",
+        "cost of rajagruha hostel",
+        "hostel accommodation fees",
+        "hostel fee breakdown",
+        "ssit hostel cost",
+        "what are the hostel types in ssit",
+        "ssit hostel charges list",
+        "types of hostel fees",
+        "fee for hostel",
+        "tell me hostel fees",
+        "cost of hmg hostel",
+        "cost of staying in hostel",
+        "fees of different hostels",
+        "ssit hostel fees",
+        "hostel price difference ssit",
+        "yearly hostel fee",
+        "hostel fee in ssit",
         "hostel fee per year",
-        "hostel fee per month",
-        "hostel fee per student",
-        "hostel fee for girls",
+        "hostel fee info",
         "hostel fee for boys",
-        "hostel fee structure ",
-        "hostel fee structure "
+        "hmg hostel fee",
+        "hostel payment details",
+        "what is the hostel fee",
+        "fees for hmg hostel",
+        "fees for rajagruha hostel",
+        "annual hostel fee",
+        "compare hostel fees ssit",
+        "what is hmg hostel fee",
+        "hostel options and fees",
+        "what is the cost of hostel",
+        "which hostel is cheaper in ssit",
+        "hostel fee structure",
+        "hostel fee for girls",
+        "ssit hostel details",
+        "how much is hmg hostel",
+        "what is rajagruha hostel fee",
+        "Hostel Fee",
+        "hostel charges",
+        "ssit hostel fee details",
+        "what are hostel fees in ssit",
+        "different hostel fees in ssit",
+        "hostel rent in ssit",
+        "how much is hostel fee",
+        "fees of hostel",
+        "rajagruha hostel fee",
+        "hostel fees",
+        "hostel fee details",
+        "what are hostel charges in ssit",
+        "ssit hostel price",
+        "what is hostel fee per year",
+        "how much does hostel cost",
+        "Fees - Hostel Fees",
+        "how much is rajagruha hostel"
       ],
       "responses": [
-        "Rajiv gandhi memorial college of engineering and technology, Kurnool offers both boys and girls hostel facilities with all basic required facilities such as mess, hygienic food, common rooms, indoor games , hot water etc.\n And the hostel is situated next to the college.\n The fee for hostel ranges between 70,000-80,000 per year."
+        "The hostel fees at SSIT are approximately: HMG Hostel \u2013 70,000 rupees per year and Rajagruha Hostel \u2013 56,000 rupees per year. Fees may vary slightly based on facilities and room type."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "ece_department",
+      "patterns": [
+        "what is electronics and communication engineering",
+        "ece syllabus overview",
+        "what do ece engineers do",
+        "what are core subjects in ece",
+        "ECE Department - Overview",
+        "ece future technologies",
+        "benefits of ece branch",
+        "ece branch career scope",
+        "what companies hire ece students",
+        "ece in real life",
+        "ssit ece details",
+        "what are ece subjects",
+        "what is electronics engineering",
+        "what is taught in ece",
+        "what is the scope of ece",
+        "ece placements",
+        "ece branch explanation",
+        "information about ece",
+        "what do ece students study",
+        "ece examples",
+        "ECE Department - Overall",
+        "ece job roles",
+        "about ece branch",
+        "is ece a good branch",
+        "importance of ece",
+        "future of ece",
+        "ece higher studies options",
+        "does ece include programming",
+        "ece branch details",
+        "what is ece",
+        "ece course details",
+        "ece applications in industry",
+        "what can i do after ece",
+        "ece technologies",
+        "tell me about ece department",
+        "ece full form",
+        "applications of ece",
+        "ece engineering details",
+        "ece department in ssit",
+        "what is communication engineering",
+        "is coding needed for ece",
+        "why choose ece",
+        "subjects in ece",
+        "ece industry scope",
+        "ece research areas",
+        "what is ece branch in ssit",
+        "what skills are needed for ece",
+        "ece overview",
+        "ECE Department - Career",
+        "ece career options",
+        "about ssit ece department",
+        "ece job opportunities"
+      ],
+      "responses": [
+        "Electronics and Communication Engineering (ECE) focuses on designing, developing, and maintaining electronic systems and communication devices. In SSIT, ECE students learn subjects like analog and digital electronics, microcontrollers, communication systems, VLSI, and embedded systems. The branch offers strong career opportunities in both core companies and software industries."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "ece_labs",
+      "patterns": [
+        "hardware labs in ece",
+        "Labs - Communication Lab",
+        "Labs - Overall",
+        "Labs - VLSI Lab",
+        "lab details in ece",
+        "labs in ssit ece",
+        "what are the laboratories in ece",
+        "analog electronics lab",
+        "signal processing lab",
+        "ece lab infrastructure",
+        "what labs are available for ece students",
+        "does ece have labs",
+        "digital electronics lab",
+        "Labs - Embedded Systems Lab",
+        "what labs are in ece",
+        "ece lab facilities",
+        "communication lab details",
+        "Labs - DSP Lab",
+        "microcontroller lab in ece",
+        "vlsi lab details",
+        "ece practical labs",
+        "ece practical work details",
+        "ece lab equipment",
+        "what experiments are done in ece labs",
+        "embedded systems lab"
+      ],
+      "responses": [
+        "The ECE department at SSIT provides well-equipped laboratories such as Analog Electronics Lab, Digital Electronics Lab, Microcontroller Lab, Communication Systems Lab, VLSI Lab, Signal Processing Lab, and Embedded Systems Lab to give students practical knowledge."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "ece_placements",
+      "patterns": [
+        "ece placement details",
+        "Placements - Training",
+        "ece average package",
+        "placements in ece",
+        "Placements - Highest Package",
+        "ece internship opportunities",
+        "ece campus placements",
+        "ece placement percentage",
+        "placement assistance in ece",
+        "placement training in ece",
+        "what companies visit ece",
+        "placement support for ece",
+        "top recruiters for ece",
+        "companies hiring ece students",
+        "does ssit provide placement for ece",
+        "ece job roles",
+        "Placements - Statistics",
+        "does ece have placements",
+        "Placements - Top Recruiters",
+        "Placements - Overall",
+        "ece highest package",
+        "ece job opportunities in ssit",
+        "career support in ece",
+        "ece placement statistics",
+        "ssit ece placements"
+      ],
+      "responses": [
+        "The ECE department at SSIT provides good placement opportunities. Students are trained through aptitude, technical, and soft skills programs. Companies from both core and IT sectors recruit ECE students for various roles."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "ece_projects",
+      "patterns": [
+        "ECE Department - Projects",
+        "software projects in ece",
+        "vlsi projects in ece",
+        "ece innovation projects",
+        "ece final year work",
+        "what kind of projects ece students do",
+        "ece project ideas",
+        "robotics projects in ece",
+        "communication projects in ece",
+        "iot projects in ece",
+        "embedded projects in ece",
+        "student projects in ece",
+        "ece practical projects",
+        "what projects are done in ece",
+        "types of ece projects",
+        "hardware projects in ece",
+        "mini projects in ece",
+        "real time projects in ece",
+        "ece project examples",
+        "ece projects",
+        "final year projects in ece"
+      ],
+      "responses": [
+        "ECE students at SSIT work on various projects such as IoT-based systems, embedded systems, robotics, communication systems, and VLSI design projects. These projects help students gain practical and industry-level experience."
       ],
       "context_set": ""
     },
@@ -352,7 +652,7 @@
         "documents needed"
       ],
       "responses": [
-        "B.Tech Programmes:Admissions into all the UG Programmes (B.Tech) in the college are made by the convener of the EAMCET, Government of A.P. based on the state wide ranks obtained in the EAMCET (Engineering, Agricultural and Medical Common Entrance Test). The selection process is purely based on the marks and ranks obtained in the EAMCET.\n M.Tech Programmes: Admissions into the PG Programmes in the college are based on the merit / ranks / scores of candidates in the national eligibility test GATE and PGECET, conducted state wide. \n The needed Documents were sent at their result cards on APEAMCET or GATE"
+        "B.Tech Programmes:Admissions into all the UG Programmes (B.Tech) in the college are made by the convener of the KCET, Government of KARNATAKA based on the state wide ranks obtained in the EAMCET (Engineering, Agricultural and Medical Common Entrance Test). The selection process is purely based on the marks and ranks obtained in the KCET.\n M.Tech Programmes: Admissions into the PG Programmes in the college are based on the merit / ranks / scores of candidates in the national eligibility test GATE and PGCET, conducted state wide. \n The needed Documents were sent at their result cards on APEAMCET or GATE"
       ],
       "context_set": ""
     },
@@ -368,61 +668,111 @@
         "floors"
       ],
       "responses": [
-        "RGM Coleege has PG, UG, RB, CIVIL, MECH blacks with 3 floors"
+        "SSIT Coleege has scholor bulding for ECE,Admin block and sir MV block for other branch Students"
       ],
       "context_set": ""
     },
     {
       "tag": "syllabus",
       "patterns": [
-        "Syllabus for all years",
-        "what is the syllabus for rgm college students",
-        "syllabus",
-        "timetable",
         "what is semester syllabus",
+        "ssit curriculum",
+        "syllabus for 2nd year",
+        "course curriculum",
+        "what are core subjects in ece",
+        "syllabus details",
+        "ECE Department - Subjects",
+        "what are subjects in ece branch",
+        "syllabus for 1st year",
+        "what subjects are there in ece",
+        "full syllabus of ece",
+        "syllabus information",
+        "ece syllabus",
+        "engineering syllabus",
+        "subject syllabus",
+        "semester syllabus",
+        "subjects per semester",
+        "syllabus pdf",
+        "give me syllabus",
+        "where is syllabus available",
+        "where can i find syllabus",
+        "course syllabus",
+        "ssit syllabus",
         "syllabus",
-        "What is next lecture"
+        "ssit ece syllabus",
+        "academic syllabus",
+        "ece curriculum ssit",
+        "btech syllabus",
+        "link for syllabus",
+        "tell me syllabus of ssit",
+        "syllabus for ece branch",
+        "what subjects are in syllabus",
+        "syllabus for all years",
+        "academic curriculum",
+        "syllabus for 4th year",
+        "complete syllabus",
+        "details of syllabus",
+        "download syllabus",
+        "what is the syllabus",
+        "year wise syllabus",
+        "semester wise syllabus",
+        "curriculum",
+        "give syllabus link",
+        "syllabus for 3rd year",
+        "subjects in each semester",
+        "ece subjects list",
+        "show me syllabus",
+        "show ssit syllabus",
+        "engineering curriculum details",
+        "syllabus link",
+        "what is syllabus of ssit"
       ],
       "responses": [
-        "https://rgmcet.edu.in/assets/img/documents/Academics/Syllabus/RGM-R12/UG/B.Tech_ME_R12.pdf"
+        "You can find the SSIT syllabus and curriculum details here: <a target=\"_blank\" href=\"https://ssit.edu.in/academics/\">Click here</a>."
       ],
       "context_set": ""
     },
     {
       "tag": "library",
       "patterns": [
-        "Is there any library",
-        "Library facility",
-        "Library facilities",
-        "Do you have library",
-        "Does the college have library facility",
-        "College library",
-        "Where can I get books",
-        "Book facility",
-        "Central Library",
-        "Where is library",
-        "Library",
-        "Tell me about the College Library",
-        "Library books information",
-        "Tell me about library",
-        "How many libraries",
-        "Book collection"
+        "library",
+        "is there a library in college",
+        "does ssit have library",
+        "library facility",
+        "library facilities",
+        "college library",
+        "ssit library",
+        "tell me about library",
+        "where is library located",
+        "library location",
+        "central library",
+        "book collection in library",
+        "how many books are in library",
+        "library resources",
+        "digital library",
+        "can i get books from library",
+        "library details",
+        "what facilities are in library",
+        "library infrastructure",
+        "library building",
+        "library information",
+        "library services",
+        "reading room facility",
+        "internet facility in library",
+        "journal availability in library",
+        "ebooks in library",
+        "library environment",
+        "study place in college",
+        "best place to study in ssit",
+        "library opening time",
+        "library rules",
+        "how is ssit library",
+        "library features",
+        "modern library facilities",
+        "is library good in ssit"
       ],
       "responses": [
-        "The central Library is located in spacious individual three storied fully air conditioned building.The Central Library has a huge collection of 12741 titles, 75935 books (69,391 books, 4373 SC Book bank scheme books, 2171 ST Book bank scheme books (total 75,935), subscribes to more than 150 print international and national journals , 3144 Back volumes, General magazines, Digital books and online resources on Engineering, Science, Humanities and Management. Reprographic facilities and Internet facilities are available in the Central Library"
-      ],
-      "context_set": ""
-    },
-    {
-      "tag": "infrastructure",
-      "patterns": [
-        "how is college infrastructure",
-        "infrastructure",
-        "rgm college infrastructure"
-      ],
-      "responses": [
-        "The infrastructure of college is good.",
-        "for more information see this website <a>http://rgmcollegeattappadi.ac.in/?page_id=783</a>"
+        "SSIT has a well-developed Central Library located at the entrance of the campus. The library building has a unique globe-like structure, which makes it visually attractive and is often featured on social media. It is spacious, modern, and provides a peaceful environment for studying. The library has a large collection of books, journals, digital resources, and e-books covering engineering, science, and management subjects. It also offers internet access, reading halls, and a digital library facility to support students in their academic learning."
       ],
       "context_set": ""
     },
@@ -444,7 +794,7 @@
         "Eating options"
       ],
       "responses": [
-        "There is a centralized AC canteen named Rahul Gandhi Canteen, where there are 5 kind of stalls.There is a vast space around to sit.They provide Tiffins, Meals, Fruits, Fruit Juices, Coffee,Tea, Milkshakes,Chineese foods, Fast foods, Cakes and bakes,Breads and buns."
+        "There is a centralized canteen, where there are 5 kind of stalls.There is a vast space around to sit.They provide Tiffins, Meals, Fruits, Fruit Juices, Coffee,Tea, Milkshakes,Chineese foods, Fast foods, Cakes and bakes,Breads and buns."
       ],
       "context_set": ""
     },
@@ -469,194 +819,166 @@
     {
       "tag": "placement",
       "patterns": [
-        "What is college placement",
-        "Which companies visit in college",
-        "What is average package",
-        "companies visit",
-        "About placement",
         "placement",
+        "placements in ssit",
+        "ssit placements",
+        "placement details",
+        "about placement",
+        "placement information",
+        "how are placements in ssit",
+        "placement record",
+        "placement statistics",
+        "placement percentage",
+        "campus placement",
+        "job opportunities",
+        "career opportunities",
+        "employment opportunities",
         "recruitment",
-        "Employment opportunities",
-        "companies"
+        "companies visit",
+        "which companies visit ssit",
+        "top companies in ssit placement",
+        "recruiters in ssit",
+        "placement companies",
+        "who hires students from ssit",
+        "companies hiring ece students",
+        "placement support",
+        "training for placement",
+        "placement training",
+        "aptitude training",
+        "soft skills training",
+        "technical training for placement",
+        "internship opportunities",
+        "does ssit provide internship",
+        "placement cell",
+        "training and placement cell",
+        "tpo details",
+        "highest package",
+        "average package",
+        "salary package",
+        "placement salary",
+        "job roles offered",
+        "placement success rate",
+        "placement history",
+        "placement growth",
+        "placement performance",
+        "placement for ece students",
+        "ece placement details",
+        "are placements good in ssit",
+        "how many students get placed",
+        "placement overview",
+        "placement facilities",
+        "placement assistance",
+        "career guidance in ssit"
       ],
       "responses": [
-        "Our college placement statistics has a rapid growth from the past 7 years by these placement partners like TCS,wipro,Virtusa,CTS,Hexaware,KIA,HTC,Infosys,Byjus,epam, BPR infratc,Automotive,and more. For more <a target=\"_blank\" href=\" https://www.rgmcet.edu.in/Placement_Records\">link </a>"
+        "SSIT has a dedicated Training and Placement Cell that provides strong support for student placements. Students are trained in aptitude, technical skills, and soft skills to improve employability. Many reputed companies visit the campus for recruitment, including IT and core sector companies. The college has shown consistent placement performance, offering good career opportunities for students in both software and core engineering fields. For more details, please visit <a target=\"_blank\" href=\"https://ssit.edu.in/placement/\">Click here</a>."
       ],
       "context_set": ""
     },
     {
-      "tag": "CivilHod",
+      "tag": "ece_hod",
       "patterns": [
-        "Who is Civil HOD",
-        "Who is CE HOD",
-        "Civil hod",
-        "CE HOD",
-        "hod of ce",
-        "hod of civil",
-        "Civil HOD",
-        "name of Civil hod",
-        "name of CE hod"
+        "who is ece hod",
+        "ece hod",
+        "hod of ece",
+        "head of ece department",
+        "who is head of ece",
+        "name of ece hod",
+        "ece department hod",
+        "who leads ece department",
+        "ece faculty head",
+        "ece head of department",
+        "ssit ece hod",
+        "who is hod of ece in ssit",
+        "ece hod name",
+        "tell me ece hod",
+        "who is the professor heading ece",
+        "ece department head name",
+        "who is incharge of ece department",
+        "ece department details hod",
+        "who is the current hod of ece",
+        "ece hod contact details",
+        "ece hod email",
+        "how to contact ece hod",
+        "ece hod information",
+        "details of ece hod",
+        "who is professor of ece department",
+        "ece department leader",
+        "head of electronics department",
+        "ece branch hod",
+        "who manages ece department",
+        "ece hod ssit details"
       ],
       "responses": [
-        "HOD of Civil: Dr.G.Sreenivasulu , Professor, Department of CE"
+        "The Head of the Electronics and Communication Engineering (ECE) Department at SSIT is Dr. M C Chandrashekhar, Professor & Head. You can contact him via email at chandrashekharmc@ssit.edu.in."
       ],
       "context_set": ""
     },
     {
-      "tag": "CSE Hod",
+      "tag": "principal",
       "patterns": [
-        "Who is CSE HOD",
-        "CSE HOD",
-        "CSE hod",
-        "hod of cse",
-        "hod of computer science",
-        "hod of computer science and engineering",
-        "Computer Science and Engineering HOD",
-        "name of CSE hod"
-      ],
-      "responses": [
-        "HOD of CSE: Dr.K.Subbareddy , Professor, Department of CSE"
-      ],
-      "context_set": ""
-    },
-    {
-      "tag": "ECE Hod",
-      "patterns": [
-        "Who is ECE HOD",
-        "ECE hod","hod of ece",
-        "ECE HOD",
-        "hod of Electronics and communication",
-        "Electronics and Communication Engineering HOD",
-        "name of ECE hod"
-      ],
-      "responses": [
-        "HOD of ECE: Dr.K.Mallikarjuna, Professor, Department of ECE"
-      ],
-      "context_set": ""
-    },
-    {
-      "tag": "EEE Hod",
-      "patterns": [
-        "Who is EEE HOD",
-        "hod of eee",
-        "EEE HOD",
-        "EEE hod",
-        "hod of electrical",
-        "hod of Electrical and electronics",
-        "Electrical and Electronics Engineering HOD",
-        "name of EEE hod"
-      ],
-      "responses": [
-        "HOD of EEE: Dr.V.Naga Bhaskar Reddy, Professor, Department of EEE"
-      ],
-      "context_set": ""
-    },
-    {
-      "tag": "ME Hod",
-      "patterns": [
-        "Who is Mechanical Engineering HOD",
-        "ME hod","hod of me","hod of mech","hod of mechanical",
-        "Mechanical HOD",
-        "ME HOD",
-        "ME hod",
-        "Mechanical Engineering HOD",
-        "name of ME hod"
-      ],
-      "responses": [
-        "HOD of ME:Dr. K. Tirupathi Reddy ,Professor, Department of ME"
-      ],
-      "context_set": ""
-    },
-    {
-      "tag": "Weather",
-      "patterns": [
-        "What's the weather like today?",
-        "Will it rain tomorrow?",
-        "weather",
-        "How hot is it outside?",
-        "Is it going to be sunny this weekend?"
-      ],
-      "responses": [
-        "here pleseant weather is there at college premesis"
-      ],
-      "context_set": "weather_city_selection"
-    },
-    {
-      "tag": "WeatherCitySelection",
-      "patterns": [
-        "New York",
-        "Los Angeles",
-        "Chicago",
-        "Houston",
-        "Miami"
-      ],
-      "responses": [
-        "Here is the weather forecast for {city}.",
-        "The weather forecast for {city} is..."
-      ],
-      "context_filter": "weather_city_selection"
-    },
-    
-    {
-      "tag": "Chairman",
-      "patterns": [
-        "Who is the chairman of RGM college",
-        "Chairman",
-        "charirman of RGM"
-      ],
-      "responses": [
-        "Chairman: Dr.M. Shanti Ramudu"
-      ],
-      "context_set": ""
-    },
-    {
-      "tag": "Student details",
-      "patterns": [
-        "admission number",
-        "registration number",
-        "Roll number",
-        "student details",
-        "I want to know about the student details",
-        "I want to know about the registration numbers"
-      ],
-      "responses": [
-        "Students admission / registration numbers starts with their join year containing branch code ex. 20091A0563(here starting 20 indicates joining year and 5 indicates cse branch code)"
-      ],
-      "context_set": ""
-    },
-    {
-      "tag": "Principal",
-      "patterns": [
-        "what is the name of principal",
-        "what is the principal name",
-        "principal name",
-        "Who is college principal",
-        "Where is principal's office",
         "principal",
-        "name of principal"
+        "who is the principal",
+        "principal name",
+        "name of principal",
+        "who is college principal",
+        "who is principal of ssit",
+        "ssit principal",
+        "principal of ssit tumkur",
+        "what is the name of principal",
+        "who is the current principal",
+        "college principal details",
+        "principal information",
+        "who is head of college",
+        "principal contact",
+        "principal email",
+        "how to contact principal",
+        "principal office",
+        "where is principal office",
+        "details of principal",
+        "principal ssit details"
       ],
       "responses": [
-        "Dr. T. Jayachandra Prasad, Professor & Principal of RGMCET."
+        "The Principal of SSIT Tumkur is Dr. M. S. Raviprakasha, Professor & Principal. You can contact him via email at principal@ssit.edu.in."
       ],
       "context_set": ""
     },
     {
-      "tag": "Sem",
+      "tag": "semester_exam",
       "patterns": [
+        "exam",
         "exam dates",
         "exam schedule",
-        "When is semester exam",
-        "Semester exam timetable",
-        "sem",
-        "semester",
-        "exam",
-        "when is exam",
         "exam timetable",
-        "exam dates",
-        "when is semester"
+        "semester exam",
+        "when is semester exam",
+        "semester exam timetable",
+        "ssit exam schedule",
+        "ssit exam timetable",
+        "ssit exam dates",
+        "when are exams in ssit",
+        "exam time table",
+        "semester",
+        "sem",
+        "when is semester",
+        "academic calendar",
+        "ssit academic calendar",
+        "exam details",
+        "internal exam dates",
+        "external exam dates",
+        "end semester exam",
+        "mid semester exam",
+        "when is next exam",
+        "exam information",
+        "exam notifications",
+        "semester schedule",
+        "college exam schedule",
+        "exam calendar ssit",
+        "when will exams start",
+        "exam updates"
       ],
       "responses": [
-        "Here is the Academic Calendar  <a target=\"_blank\" href=\"https://rgmexams.co.in/Examinations.php\">website</a>"
+        "You can check the SSIT exam schedule and academic calendar here: <a target=\"_blank\" href=\"https://ssit.edu.in/academics/\">Click here</a>. Please refer to the academic calendar or notifications section for detailed exam dates and timetable."
       ],
       "context_set": ""
     },
@@ -692,113 +1014,139 @@
         "fourth year scholarship"
       ],
       "responses": [
-        "The college offers COMPLETE TUITION FEE WAIVER FOR ALL THE FOUR YEARS of the B.Tech course to students who join this college with less than 10,000 rank in EAMCET."
+        "The college offers COMPLETE TUITION FEE WAIVER FOR ALL THE FOUR YEARS of the B.Tech course to students who join this college with less than 10,000 rank in KCET."
       ],
       "context_set": ""
     },
     {
-      "tag": "Bus Facilities",
+      "tag": "bus_facilities",
       "patterns": [
-        "Bus facilities",
-        "where can i start by bus",
-        "Bus",
-        "Buses",
-        "bus provision",
+        "ssit bus facility",
+        "college bus routes ssit",
+        "ssit transport details",
+        "bus schedule",
+        "how can i reach ssit by bus",
+        "college bus",
+        "transport in ssit",
+        "bus facilities",
+        "is bus available in ssit",
+        "from where buses are available",
+        "bus pickup points",
+        "college transportation",
+        "bus service in ssit",
         "transport facility",
-        "transport provision",
-        "What are the places does buses run",
-        "picking bus",
-        "bus facility",
-        "Transportation",
-        "How can I travel by bus",
-        "Bus schedule",
-        "Bus routes"
+        "how to travel to college",
+        "bus routes",
+        "Fees - Transport"
       ],
       "responses": [
-        "Buses transportation can be provided from Nandyal, Allagadda, Kurnool",
-        "You can catch buses from various locations including Nandyal, Allagadda, and Kurnool.",
-        "Bus services are available from multiple areas such as Nandyal, Allagadda, and Kurnool."
+        "SSIT provides transport facilities for students from Tumkur and nearby areas. College buses operate on multiple routes covering important locations to ensure safe and convenient travel for students. For detailed routes and timings, students can contact the college transport office."
       ],
       "context_set": ""
     },
     {
-      "tag": "College Intake",
+      "tag": "college_intake",
       "patterns": [
-        "max number of students",
-        "number of seats per branch",
-        "number of seats in each branch",
-        "maximum number of seats",
-        "maximum students intake",
-        "What is college intake",
-        "how many student are taken in each branch",
+        "college intake",
+        "number of seats",
+        "seat intake",
+        "how many students per branch",
+        "intake capacity",
+        "ssit intake",
+        "branch wise intake",
+        "how many seats in ece",
+        "ece intake",
+        "student capacity",
+        "maximum intake",
         "seat allotment",
-        "seats"
+        "how many students are admitted",
+        "intake details ssit"
       ],
       "responses": [
-        "Maximum intake for Each Branch is Civil Engineering 180\n Electrical and Electronics Engineering 120 \n Electronics Engineering 240\n Computer Science and Engineering 180\n Mechanical Engineering 180"
+        "SSIT offers multiple engineering branches with a fixed intake capacity as per university and AICTE norms. The intake for each branch, including ECE, may vary slightly each year. For exact seat intake details, please refer to the official SSIT admission section or contact the college administration."
       ],
       "context_set": ""
     },
     {
-      "tag": "Uniform",
+      "tag": "uniform",
       "patterns": [
-        "college dress code",
-        "college dresscode",
+        "college uniform",
+        "dress code",
+        "ssit uniform",
         "what is the uniform",
+        "is there uniform in ssit",
         "can we wear casuals",
-        "Does college have an uniform",
-        "Is there any uniform",
-        "uniform",
-        "what about uniform",
-        "do we have to wear uniform"
+        "college dress code",
+        "uniform rules",
+        "what to wear in college",
+        "lab dress code",
+        "is uniform compulsory",
+        "ssit dress code details"
       ],
       "responses": [
-        "There is a flex in college uniform but students should maintain Apron uniform(Khaki dress) for the labs"
+        "SSIT does not enforce a strict daily uniform for students. However, students are expected to follow a decent dress code. For laboratory sessions, students are required to wear lab coats (apron) for safety and discipline."
       ],
       "context_set": ""
     },
     {
-      "tag": "Committee",
+      "tag": "committees",
       "patterns": [
-        "what are the different committees in college",
-        "different committee in college",
-        "Are there any committees in college",
-        "Give me committee details",
-        "committee",
-        "how many committees are there in college"
+        "committees in ssit",
+        "college committees",
+        "what committees are there",
+        "student committees",
+        "ssit committees",
+        "different committees in college",
+        "college committees list",
+        "student bodies in ssit",
+        "are there committees in college",
+        "committee details",
+        "what are college groups",
+        "clubs and committees in ssit"
       ],
       "responses": [
-        "response for Committee"
+        "SSIT has various committees and student bodies to support academic and extracurricular activities. These include cultural committees, technical clubs, placement and training cells, anti-ragging committee, grievance cell, and other student support groups that help in overall development."
       ],
       "context_set": ""
     },
     {
-      "tag": "Marks",
+      "tag": "marks",
       "patterns": [
-        "Give me my marks",
-        "i need my marks",
-        "Give me my results",
-        "Results",
-        "Exam results",
-        "Marks",
-        "Rank card",
+        "marks",
+        "results",
+        "exam results",
+        "check my marks",
+        "view my results",
+        "show my marks",
+        "show my results",
+        "rank card",
         "show my rank card",
-        "Check my marks",
-        "View my results",
-        "How did I perform in the exam?",
-        "What is my score?",
-        "Show my grades"       
+        "grades",
+        "what is my score",
+        "how did i perform",
+        "semester results",
+        "internal marks",
+        "external marks",
+        "ssit results",
+        "ssit marks",
+        "student portal",
+        "ssit student portal",
+        "where can i check my results",
+        "how to check marks in ssit",
+        "result link ssit",
+        "marks portal ssit",
+        "student login results",
+        "exam result ssit",
+        "ece results ssit",
+        "how to see my marks",
+        "check result online",
+        "college result portal"
       ],
       "responses": [
-      
-        "Click on the <a target=\"_blank\" href=\"https://rgmexams.co.in/index.php\"> link</a> for your results",
-        "You can find your marks by visiting the <a target=\"_blank\" href=\"https://rgmexams.co.in/index.php\"> link</a>.",
-        "Access your results through the <a target=\"_blank\" href=\"https://rgmexams.co.in/index.php\"> link</a> provided.",
-        "Your exam results are available at the <a target=\"_blank\" href=\"https://rgmexams.co.in/index.php\"> link</a>."
+        "You can check your marks and results through the SSIT student portal. Please visit <a target=\"_blank\" href=\"http://sis.e365.tech/login.aspx?AppType=E&sid=1040\">Click here</a> and navigate to the student/ERP portal section to log in and view your results."
       ],
-      
       "context_set": ""
-    },    
+    },
     {
       "tag": "Swear",
       "patterns": [
@@ -832,10 +1180,9 @@
         "When is vacation",
         "When is holidays",
         "how long will be the vacation"
-
       ],
       "responses": [
-        "Please refer academic calendar <a target=\"_blank\" href=\"https://rgmexams.co.in/Examinations.php\">here</a>"
+        "Please refer academic calendar <a target=\"_blank\" href=\"http://sis.e365.tech/login.aspx?AppType=E&sid=1040\">here</a>"
       ],
       "context_set": ""
     },
@@ -862,7 +1209,9 @@
         "about CSE",
         "CSE details",
         "CSE information",
-        "CSE branch","Computer Science", "CSE"
+        "CSE branch",
+        "Computer Science",
+        "CSE"
       ],
       "responses": [
         "The Computer Science and Engineering (CSE) department offers undergraduate and graduate programs in computer science, covering topics such as algorithms, data structures, programming languages, software engineering, and more."
@@ -876,7 +1225,8 @@
         "about ECE",
         "ECE details",
         "ECE information",
-        "ECE branch","ECE"
+        "ECE branch",
+        "ECE"
       ],
       "responses": [
         "The Electronics and Communication Engineering (ECE) department offers undergraduate and graduate programs focusing on electronics, communication systems, signal processing, microelectronics, and related areas."
@@ -888,7 +1238,8 @@
       "patterns": [
         "EEE department",
         "about EEE",
-        "EEE details","EEE",
+        "EEE details",
+        "EEE",
         "EEE information",
         "EEE branch"
       ],
@@ -903,7 +1254,9 @@
         "ME department",
         "about ME",
         "ME details",
-        "MECH", "Mechanical Engineering","ME",
+        "MECH",
+        "Mechanical Engineering",
+        "ME",
         "ME information",
         "ME branch"
       ],
@@ -918,7 +1271,8 @@
         "CE department",
         "about CE",
         "CE details",
-        "CIVIL","CE",
+        "CIVIL",
+        "CE",
         "CE information",
         "CE branch"
       ],
@@ -928,351 +1282,354 @@
       "context_set": ""
     },
     {
-      "tag": "Salutation",
+      "tag": "salutation",
       "patterns": [
+        "ok",
+        "okay",
         "okk",
         "okie",
-        "nice work",
-        "well done",
-        "good job",
+        "ok thanks",
+        "thanks",
+        "thank you",
+        "thanks a lot",
+        "thank you so much",
         "thanks for the help",
-        "Thank You"
+        "thanks for helping",
+        "thanks bro",
+        "thanks a lot bro",
+        "nice",
+        "nice work",
+        "good",
+        "good job",
+        "well done",
+        "great",
+        "great job",
+        "awesome",
+        "super",
+        "cool",
+        "that was helpful",
+        "helpful",
+        "very helpful",
+        "appreciate it",
+        "thanks for the info",
+        "thanks for your support",
+        "good answer",
+        "nice explanation",
+        "good explanation",
+        "perfect",
+        "great answer",
+        "amazing",
+        "excellent",
+        "thanks chatbot",
+        "thanks buddy",
+        "okay got it",
+        "got it thanks",
+        "fine thanks",
+        "alright thanks",
+        "ok understood"
       ],
       "responses": [
-        "response for Salutation"
+        "You're welcome! \ud83d\ude0a",
+        "Glad I could help! \ud83d\udc4d",
+        "Happy to help! \ud83d\ude0a",
+        "Anytime! Feel free to ask more questions.",
+        "You're welcome! Let me know if you need anything else.",
+        "Great! If you have more questions, just ask.",
+        "Thanks! I'm here to help you anytime.",
+        "No problem! \ud83d\ude0a",
+        "Happy learning! \ud83d\ude80",
+        "Glad you found it useful!"
       ],
       "context_set": ""
     },
     {
-      "tag": "CSE faculty",
+      "tag": "ECE faculty",
       "patterns": [
-        "CSE faculty details",
-        "CSE faculty information",
-        "list of CSE faculty",
-        "Lecturers in CSE department",
-        "CSE faculty list",
-        "who are the CSE faculty members",
-        "CSE faculty details"
+        "who is the hod of ece",
+        "tell me about ece faculty",
+        "who are the ECE faculty members",
+        "ece professors",
+        "electronics and communication teachers",
+        "Faculty - Overall",
+        "show me ece faculty",
+        "ece staff",
+        "Faculty - Associate Professors",
+        "ECE faculty list",
+        "who teaches in ece",
+        "ece department lecturers",
+        "Faculty - Professors",
+        "Lecturers in ECE department",
+        "ece department staff details",
+        "ECE faculty information",
+        "ECE faculty details",
+        "list of ECE faculty",
+        "get ece faculty details",
+        "Faculty - Assistant Professors",
+        "list the staff in ece"
       ],
       "responses": [
         {
-        
           "faculty": [
             {
-              "name": "Prof. Prahlada Rao B.B.",
-              "designation": "Professor & Dean",
-              "qualification": "M.Tech & Ph.D"
+              "name": "Dr. M.C. Chandrashekhar",
+              "qualification": "M.Tech & Ph.D",
+              "designation": "Professor & Head"
             },
             {
-              "name": "Dr. G. SUNIL VIJAYA KUMAR",
-              "designation": "Professor & Dean",
-              "qualification": "M.Tech & Ph.D"
+              "name": "Dr. Suresh M",
+              "qualification": "M.Tech & Ph.D",
+              "designation": "Professor"
             },
             {
-              "name": "Dr. N Madhusudhana Reddy",
-              "designation": "Professor",
-              "qualification": "M.Tech & Ph.D"
+              "name": "Divyaprabha",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
             },
             {
-              "name": "Dr. G. Kishor Kumar",
-              "designation": "Professor",
-              "qualification": "M.Tech & Ph.D"
+              "name": "M C Basavaraja",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
             },
             {
-              "name": "Dr. R. Kaviarasan",
-              "designation": "Associate Professor",
-              "qualification": "M.Tech & Ph.D"
+              "name": "Dr. Sunil T D",
+              "qualification": "M.Tech & Ph.D",
+              "designation": "Professor"
             },
             {
-              "name": "Mr. B.Bhaskar Rao",
-              "designation": "Associate Professor",
-              "qualification": "M.Tech"
+              "name": "Dr. Anitha Devi M.D",
+              "qualification": "M.Tech & Ph.D",
+              "designation": "Associate Professor"
             },
             {
-              "name": "Mr. P Naveen Sundar Kumar",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
+              "name": "Dr. Chidananda Murthy M V",
+              "qualification": "M.Tech & Ph.D",
+              "designation": "Associate Professor"
             },
             {
-              "name": "Mr. G Rajasekhar Reddy",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
+              "name": "Dr. Sreerangappa.M",
+              "qualification": "M.Tech & Ph.D",
+              "designation": "Associate Professor"
             },
             {
-              "name": "Mr. P Dastagiri Reddy",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
+              "name": "Dr. Shyla.M.K",
+              "qualification": "M.Tech & Ph.D",
+              "designation": "Associate Professor"
             },
             {
-              "name": "Mr. V Ravikanth",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
+              "name": "Dr. Komala K",
+              "qualification": "M.Tech & Ph.D",
+              "designation": "Associate Professor"
             },
             {
-              "name": "Mrs. T Sravani",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
+              "name": "Dr. Ashwini S Shivannavar",
+              "qualification": "M.Tech & Ph.D",
+              "designation": "Associate Professor"
             },
             {
-              "name": "Ms. P.Sucharitha",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
+              "name": "Dr. Praveen Kumar Y G",
+              "qualification": "M.Tech & Ph.D",
+              "designation": "Associate Professor"
             },
             {
-              "name": "Mr. T. Gurappa",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
+              "name": "Dr. Sharada Guptha M N",
+              "qualification": "M.Tech & Ph.D",
+              "designation": "Associate Professor"
             },
             {
-              "name": "Mrs.T. Suvarna",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
+              "name": "Dr. Keshava Murthy T G",
+              "qualification": "M.Tech & Ph.D",
+              "designation": "Associate Professor"
             },
             {
-              "name": "Mrs.G.Nagapavani",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
+              "name": "C R Mohan Kumar",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
             },
             {
-              "name": "Mrs.Y.Durgatejaswi",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
+              "name": "Ravisimha B N",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
             },
             {
-              "name": "Mrs. D.Sravanthi",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
+              "name": "PRAVEEN M",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
             },
             {
-              "name": "Mrs. S Rubia Parveen",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
+              "name": "Bindu A U",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
             },
             {
-              "name": "Mr. B.V.Chandra Sekhar",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
+              "name": "Dr. Ghouse Ahamed Z",
+              "qualification": "M.Tech & Ph.D",
+              "designation": "Associate Professor"
             },
             {
-              "name": "Mrs. S Tahseen Banu",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
+              "name": "M R Maanasa",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
             },
             {
-              "name": "Mr. K. Viswanath",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
+              "name": "Revanna B R",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
             },
             {
-              "name": "Mrs. G V S Sowmya",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
+              "name": "SRIRAMU D S",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
             },
             {
-              "name": "Mr. K K Nagendra",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
+              "name": "Sriraksha Devaraj",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
             },
             {
-              "name": "Mr. B. VENKATESH",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
+              "name": "Vidya K V",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
             },
             {
-              "name": "Mrs. M VISHALAKSHI",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
+              "name": "Nicy Siby",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
             },
             {
-              "name": "Mrs. P UDAYINI",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
+              "name": "Hamsalekha N P",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
             },
             {
-              "name": "Mr. K MALLIKARJUNA",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
+              "name": "Bharath Kumar T S",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
             },
             {
-              "name": "Mr. B KUMAR",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
-            },
-            {
-              "name": "Mr. G SHISHADHAR",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
-            },
-            {
-              "name": "Mr. M MAHABOOB PEERA",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
-            },
-            {
-              "name": "Mr. M MOHAMMED FAYAZ",
-              "designation": "Assistant Professor",
-              "qualification": "MCA"
-            },
-            {
-              "name": "Mr. S PRAVEEN KUMAR",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
-            },
-            {
-              "name": "Dr. K Subba Reddy",
-              "designation": "Professor & HOD",
-              "qualification": "M.Tech & Ph.D"
-            },
-            {
-              "name": "Dr. R Raja Kumar",
-              "designation": "Associate Professor",
-              "qualification": "M.Tech & Ph.D"
-            },
-            {
-              "name": "Dr. P Prathap Naidu",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
-            },
-            {
-              "name": "Dr. M. Sravan Kumar Reddy",
-              "designation": "Associate Professor",
-              "qualification": "M.Tech & Ph.D"
-            },
-            {
-              "name": "Dr. K E Naresh Kumar",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech & Ph.D"
-            },
-            {
-              "name": "Dr. K.Nageswara Reddy",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech & Ph.D"
-            },
-            {
-              "name": "Dr. K.Narasimhulu",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech & Ph.D"
-            },
-            {
-              "name": "Dr. Pogula Sreedevi",
-              "designation": "Associate Professor",
-              "qualification": "M.Tech & Ph.D"
-            },
-            {
-              "name": "Mr. P. Arun Babu",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
-            },
-            {
-              "name": "Mr. C Hrishikesava Reddy",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
-            },
-            {
-              "name": "Dr. M. Suleman Basha",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech & Ph.D"
-            },
-            {
-              "name": "Mr. K R Harinath",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
-            },
-            {
-              "name": "Mr. Janardhan Komarolu",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
-            },
-            {
-              "name": "Mrs. B Swetha",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
-            },
-            {
-              "name": "Mrs. Chaitanya Nukala",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
-            },
-            {
-              "name": "Mr. Y Suresh Reddy",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
-            },
-            {
-              "name": "Mr. V. Phanishwara Hara Gopal",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
-            },
-            {
-              "name": "Ms. S. Sai Sravya",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
-            },
-            {
-              "name": "Ms. K.Jayasri",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
-            },
-            {
-              "name": "Ms. D.Karishma",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
-            },
-            {
-              "name": "Mrs. S PARIMALA",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
-            },
-            {
-              "name": "Mr. S SADHAM HUSSAIN",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
-            },
-            {
-              "name": "Mr. Vaseem Akram",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
-            },
-            {
-              "name": "Mrs. Adilakshmi",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
-            },
-            {
-              "name": "Mr. MEGHAM SHYAM",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
-            },
-            {
-              "name": "Mr. Shaik Rafi",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
-            },
-            {
-              "name": "Mrs. P ARUNA",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
-            },
-            {
-              "name": "Mr. P HADELY MOSES",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
-            },
-            {
-              "name": "Mr. P SOLOMAN RAJ",
-              "designation": "Assistant Professor",
-              "qualification": "M.Tech"
-            },
-            {
-              "name": "Mr. S DASTAGIRI",
-              "designation": "Assistant Professor",
-              "qualification": "MCA"
+              "name": "Mahalingesh T C",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
             }
           ]
         }
       ],
       "context_set": ""
+    },
+    {
+      "tag": "ece_department_history",
+      "patterns": [
+        "when was ece department started",
+        "ece intake capacity",
+        "history of ece department",
+        "ece pg programs",
+        "does ece have pg courses",
+        "ece department info",
+        "about ece branch history",
+        "how old is ece department",
+        "ece established year"
+      ],
+      "responses": [
+        "The Department of Electronics and Communication Engineering (ECE) at SSIT was started in 1980 with an initial intake of 40 students, which has now increased to 180 (as of 2024). It offers PG programmes in 'Digital Electronics' (since 2005) and 'VLSI and Embedded Systems' (since 2009). The department is AICTE approved and has been accredited 3 times!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "ece_alumni",
+      "patterns": [
+        "ece alumni",
+        "notable alumni of ece",
+        "where are ece alumni working",
+        "famous alumni from ece",
+        "ssit ece alumni",
+        "alumni network of ece",
+        "successful students from ece"
+      ],
+      "responses": [
+        "Our ECE alumni have a strong global presence! Notable alumni include Dr. Mahadeva Prasanna (Dean/Prof at IIT Dharwad), Sumana Iyengar (Co-founder/CEO Goavega Software, USA/Bengaluru), Dr. R K Das (Principal DRIEMS), Hemanth Kumar (Founder V3Novus), and many professionals working in top tech companies like Ericsson, Symphony AI, and NXP India."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "ece_achievements",
+      "patterns": [
+        "ece achievements",
+        "ece awards",
+        "what are the achievements of ece department",
+        "ece funded projects",
+        "student awards in ece",
+        "ece college awards",
+        "projects funded by kscst",
+        "vgst funded projects ece",
+        "ece department proud moments"
+      ],
+      "responses": [
+        "The ECE Department boasts tremendous achievements: \n1. A Rs. 20,00,000 grant from VGST for the 'Cyber Security Center of Excellence Lab'. \n2. ECE students secured the 'Outstanding Student Branch Website' Award from IEEE Bangalore Section (2020-21). \n3. Multiple Best Project Awards sponsored by KSCST, including an Automated Door Opening System for COVID-19 risk reduction!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "ece_mou",
+      "patterns": [
+        "ece mous",
+        "memorandum of understanding ece",
+        "industry tie ups in ece",
+        "ece department industry collaborations",
+        "companies tied up with ece",
+        "does ece have industry connections"
+      ],
+      "responses": [
+        "The ECE department has active MOUs with prominent tech organizations to ensure industry exposure! These include Cranes Software International Limited, Advanced Electronics Systems (ALS), MIT Square (London), MEVI Technologies LLP, TMI Systems, Blend Vidya EdTech, Innowitech Solutions, and Entuple Technologies."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "ece_clubs",
+      "patterns": [
+        "ece student clubs",
+        "clubs in ece",
+        "extra curricular activities in ece",
+        "parishrama activity club",
+        "what clubs are available for ece students",
+        "professional bodies in ece",
+        "does ece have a technical club"
+      ],
+      "responses": [
+        "ECE students are highly active! The department proudly hosts the 'Parishrama Activity Club' for value-added courses, workshops, and hobby projects. Additionally, students actively participate in professional bodies like IEEE, ISTE, NSS, NCC, and the Varsity Circle, often winning prizes at national-level technical events."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "ece_objectives_outcomes",
+      "patterns": [
+        "ece peo",
+        "program educational objectives of ece",
+        "program outcomes of ece",
+        "ece pos and psos",
+        "what are the objectives of ece branch",
+        "ece vision and mission",
+        "why should i join ece"
+      ],
+      "responses": [
+        "The ECE department aims to mold quality technocrats. Our Programme Educational Objectives (PEOs) focus on making students proficient in engineering synthesis (PEO-1), competent to pursue higher studies and research (PEO-2), and aware of new technologies for societal needs while maintaining ethical practices (PEO-3)."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "hostel_info",
+      "patterns": [
+        "hostel facilities",
+        "Hostel - Rajagruha Hostel",
+        "Hostel - Facilities",
+        "Hostel - Overall",
+        "information about hostel",
+        "tell me about hostels",
+        "hostel details",
+        "Hostel - HMG Hostel"
+      ],
+      "responses": [
+        "SSIT provides separate hostel facilities for boys and girls. The boys' hostels include HMG Hostel and Rajagruha Hostel, which offer basic amenities, Wi-Fi, dining, and security to ensure a comfortable stay for all outstation students."
+      ],
+      "context_set": ""
     }
-   
   ]
 }
