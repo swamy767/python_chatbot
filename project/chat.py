@@ -50,7 +50,15 @@ def get_response(sentence):
     if prob.item() > 0.75:
         for intent in intents['intents']:
             if tag == intent["tag"]:
-                return random.choice(intent['responses'])
+                response = random.choice(intent['responses'])
+                if isinstance(response, dict) and "faculty" in response:
+                    response_text = ""
+                    for f in response["faculty"]:
+                        response_text += f"Name: {f['name']}<br>"
+                        response_text += f"Qualification: {f['qualification']}<br>"
+                        response_text += f"Designation: {f['designation']}<br><br>"
+                    return response_text
+                return response
     else:
         return "I do not understand..."
 

@@ -4321,154 +4321,42 @@
         "can i know ece faculty list",
         "tell me who is the hod of ece"
       ],
-      "responses": [
-        {
-          "faculty": [
-            {
-              "name": "Dr. M.C. Chandrashekhar",
-              "qualification": "M.Tech & Ph.D",
-              "designation": "Professor & Head"
-            },
-            {
-              "name": "Dr. Suresh M",
-              "qualification": "M.Tech & Ph.D",
-              "designation": "Professor"
-            },
-            {
-              "name": "Divyaprabha",
-              "qualification": "M.Tech",
-              "designation": "Assistant Professor"
-            },
-            {
-              "name": "M C Basavaraja",
-              "qualification": "M.Tech",
-              "designation": "Assistant Professor"
-            },
-            {
-              "name": "Dr. Sunil T D",
-              "qualification": "M.Tech & Ph.D",
-              "designation": "Professor"
-            },
-            {
-              "name": "Dr. Anitha Devi M.D",
-              "qualification": "M.Tech & Ph.D",
-              "designation": "Associate Professor"
-            },
-            {
-              "name": "Dr. Chidananda Murthy M V",
-              "qualification": "M.Tech & Ph.D",
-              "designation": "Associate Professor"
-            },
-            {
-              "name": "Dr. Sreerangappa.M",
-              "qualification": "M.Tech & Ph.D",
-              "designation": "Associate Professor"
-            },
-            {
-              "name": "Dr. Shyla.M.K",
-              "qualification": "M.Tech & Ph.D",
-              "designation": "Associate Professor"
-            },
-            {
-              "name": "Dr. Komala K",
-              "qualification": "M.Tech & Ph.D",
-              "designation": "Associate Professor"
-            },
-            {
-              "name": "Dr. Ashwini S Shivannavar",
-              "qualification": "M.Tech & Ph.D",
-              "designation": "Associate Professor"
-            },
-            {
-              "name": "Dr. Praveen Kumar Y G",
-              "qualification": "M.Tech & Ph.D",
-              "designation": "Associate Professor"
-            },
-            {
-              "name": "Dr. Sharada Guptha M N",
-              "qualification": "M.Tech & Ph.D",
-              "designation": "Associate Professor"
-            },
-            {
-              "name": "Dr. Keshava Murthy T G",
-              "qualification": "M.Tech & Ph.D",
-              "designation": "Associate Professor"
-            },
-            {
-              "name": "C R Mohan Kumar",
-              "qualification": "M.Tech",
-              "designation": "Assistant Professor"
-            },
-            {
-              "name": "Ravisimha B N",
-              "qualification": "M.Tech",
-              "designation": "Assistant Professor"
-            },
-            {
-              "name": "PRAVEEN M",
-              "qualification": "M.Tech",
-              "designation": "Assistant Professor"
-            },
-            {
-              "name": "Bindu A U",
-              "qualification": "M.Tech",
-              "designation": "Assistant Professor"
-            },
-            {
-              "name": "Dr. Ghouse Ahamed Z",
-              "qualification": "M.Tech & Ph.D",
-              "designation": "Associate Professor"
-            },
-            {
-              "name": "M R Maanasa",
-              "qualification": "M.Tech",
-              "designation": "Assistant Professor"
-            },
-            {
-              "name": "Revanna B R",
-              "qualification": "M.Tech",
-              "designation": "Assistant Professor"
-            },
-            {
-              "name": "SRIRAMU D S",
-              "qualification": "M.Tech",
-              "designation": "Assistant Professor"
-            },
-            {
-              "name": "Sriraksha Devaraj",
-              "qualification": "M.Tech",
-              "designation": "Assistant Professor"
-            },
-            {
-              "name": "Vidya K V",
-              "qualification": "M.Tech",
-              "designation": "Assistant Professor"
-            },
-            {
-              "name": "Nicy Siby",
-              "qualification": "M.Tech",
-              "designation": "Assistant Professor"
-            },
-            {
-              "name": "Hamsalekha N P",
-              "qualification": "M.Tech",
-              "designation": "Assistant Professor"
-            },
-            {
-              "name": "Bharath Kumar T S",
-              "qualification": "M.Tech",
-              "designation": "Assistant Professor"
-            },
-            {
-              "name": "Mahalingesh T C",
-              "qualification": "M.Tech",
-              "designation": "Assistant Professor"
-            }
-          ]
-        }
-      ],
-      "context_set": ""
-    },
+     "responses": [
+  {
+    "faculty": [
+      {"name": "Dr. M.C. Chandrashekhar", "qualification": "M.Tech & Ph.D", "designation": "Professor & Head"},
+      {"name": "Dr. Suresh M", "qualification": "M.Tech & Ph.D", "designation": "Professor"},
+      {"name": "Divyaprabha", "qualification": "M.Tech", "designation": "Assistant Professor"},
+      {"name": "M C Basavaraja", "qualification": "M.Tech", "designation": "Assistant Professor"},
+      {"name": "Dr. Sunil T D", "qualification": "M.Tech & Ph.D", "designation": "Professor"},
+      {"name": "Dr. Anitha Devi M.D", "qualification": "M.Tech & Ph.D", "designation": "Associate Professor"},
+      {"name": "Dr. Chidananda Murthy M V", "qualification": "M.Tech & Ph.D", "designation": "Associate Professor"},
+      {"name": "Dr. Sreerangappa.M", "qualification": "M.Tech & Ph.D", "designation": "Associate Professor"},
+      {"name": "Dr. Shyla.M.K", "qualification": "M.Tech & Ph.D", "designation": "Associate Professor"},
+      {"name": "Dr. Komala K", "qualification": "M.Tech & Ph.D", "designation": "Associate Professor"},
+      {"name": "Dr. Ashwini S Shivannavar", "qualification": "M.Tech & Ph.D", "designation": "Associate Professor"},
+      {"name": "Dr. Praveen Kumar Y G", "qualification": "M.Tech & Ph.D", "designation": "Associate Professor"},
+      {"name": "Dr. Sharada Guptha M N", "qualification": "M.Tech & Ph.D", "designation": "Associate Professor"},
+      {"name": "Dr. Keshava Murthy T G", "qualification": "M.Tech & Ph.D", "designation": "Associate Professor"},
+      {"name": "C R Mohan Kumar", "qualification": "M.Tech", "designation": "Assistant Professor"},
+      {"name": "Ravisimha B N", "qualification": "M.Tech", "designation": "Assistant Professor"},
+      {"name": "PRAVEEN M", "qualification": "M.Tech", "designation": "Assistant Professor"},
+      {"name": "Bindu A U", "qualification": "M.Tech", "designation": "Assistant Professor"},
+      {"name": "Dr. Ghouse Ahamed Z", "qualification": "M.Tech & Ph.D", "designation": "Associate Professor"},
+      {"name": "M R Maanasa", "qualification": "M.Tech", "designation": "Assistant Professor"},
+      {"name": "Revanna B R", "qualification": "M.Tech", "designation": "Assistant Professor"},
+      {"name": "SRIRAMU D S", "qualification": "M.Tech", "designation": "Assistant Professor"},
+      {"name": "Sriraksha Devaraj", "qualification": "M.Tech", "designation": "Assistant Professor"},
+      {"name": "Vidya K V", "qualification": "M.Tech", "designation": "Assistant Professor"},
+      {"name": "Nicy Siby", "qualification": "M.Tech", "designation": "Assistant Professor"},
+      {"name": "Hamsalekha N P", "qualification": "M.Tech", "designation": "Assistant Professor"},
+      {"name": "Bharath Kumar T S", "qualification": "M.Tech", "designation": "Assistant Professor"},
+      {"name": "Mahalingesh T C", "qualification": "M.Tech", "designation": "Assistant Professor"}
+    ]
+  }
+],
+"context_set": ""
+},
     {
       "tag": "ece_department_history",
       "patterns": [
