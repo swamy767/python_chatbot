@@ -2,6 +2,12 @@ import numpy as np
 import nltk
 from nltk.stem import WordNetLemmatizer
 
+# Auto-download required NLTK resources for cloud deployment
+nltk.download('punkt', quiet=True)
+nltk.download('punkt_tab', quiet=True)
+nltk.download('wordnet', quiet=True)
+nltk.download('omw-1.4', quiet=True)
+
 # Initialize the WordNet lemmatizer
 lemmatizer = WordNetLemmatizer()
 
