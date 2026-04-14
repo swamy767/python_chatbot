@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>SSIT ECE Chatbot</title>
     <!-- Add FontAwesome and external fonts -->
@@ -7,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-    
+
     <style>
         /* CSS Reset & Basic Setup */
         * {
@@ -15,15 +16,69 @@
             margin: 0;
             padding: 0;
         }
-        
-        body, html {
+
+        body,
+        html {
             height: 100%;
             font-family: 'Outfit', sans-serif;
             /* Premium dark mode gradient */
             background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
             color: #f1f5f9;
         }
+
+        /* Notes Search Interface embedded in Chat */
+        .notes-search-input {
+            width: 100%;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(139, 92, 246, 0.4);
+            background: rgba(15, 23, 42, 0.8);
+            color: #f8fafc;
+            margin-bottom: 12px;
+            font-family: inherit;
+        }
+        .notes-search-input::placeholder { color: #94a3b8; }
+        .notes-search-input:focus { outline: none; border-color: #8b5cf6; }
         
+        .subject-section {
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .subject-section h4 {
+            color: #c4b5fd;
+            margin-bottom: 8px;
+            font-size: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 4px;
+        }
+        .notes-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        .notes-list li {
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+        }
+        .notes-list li::before {
+            content: "📄";
+            margin-right: 8px;
+            font-size: 0.85rem;
+        }
+        .notes-list a {
+            color: #f1f5f9;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .notes-list a:hover {
+            color: #a78bfa;
+            text-decoration: underline;
+        }
+
         /* Layout Container */
         .app-container {
             display: flex;
@@ -32,7 +87,7 @@
             height: 100vh;
             padding: 20px;
         }
-        
+
         /* Main Chat Card with Glassmorphism */
         .chat-card {
             width: 100%;
@@ -58,7 +113,7 @@
             align-items: center;
             gap: 15px;
         }
-        
+
         .bot-avatar {
             width: 50px;
             height: 50px;
@@ -68,7 +123,7 @@
             padding: 2px;
             background: #fff;
         }
-        
+
         .bot-info h2 {
             font-size: 1.25rem;
             font-weight: 600;
@@ -87,7 +142,7 @@
             display: inline-block;
             box-shadow: 0 0 8px #10b981;
         }
-        
+
         .bot-info p {
             font-size: 0.85rem;
             color: #94a3b8;
@@ -105,7 +160,8 @@
         }
 
         .select-wrapper::after {
-            content: '\f107'; /* FontAwesome angle-down */
+            content: '\f107';
+            /* FontAwesome angle-down */
             font-family: 'Font Awesome 5 Free';
             font-weight: 900;
             position: absolute;
@@ -154,7 +210,7 @@
         .sub-options-container::-webkit-scrollbar {
             height: 6px;
         }
-        
+
         .sub-options-container::-webkit-scrollbar-thumb {
             background: rgba(139, 92, 246, 0.5);
             border-radius: 10px;
@@ -245,7 +301,7 @@
             opacity: 0.6;
             text-align: right;
         }
-        
+
         .message-wrapper.bot .msg-time {
             text-align: left;
         }
@@ -303,19 +359,19 @@
             transform: scale(1.05);
             box-shadow: 0 6px 15px rgba(99, 102, 241, 0.4);
         }
-        
+
         .action-btn.mic {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             color: #a78bfa;
             box-shadow: none;
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
-        
+
         .action-btn.mic:hover {
             background: rgba(139, 92, 246, 0.2);
             color: #c4b5fd;
         }
-        
+
         .typing-indicator {
             display: none;
             align-items: center;
@@ -327,7 +383,7 @@
             width: fit-content;
             margin-bottom: 10px;
         }
-        
+
         .typing-indicator span {
             width: 6px;
             height: 6px;
@@ -335,134 +391,183 @@
             border-radius: 50%;
             animation: bounce 1.4s infinite ease-in-out both;
         }
-        
-        .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
-        .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
-        
+
+        .typing-indicator span:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+
+        .typing-indicator span:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+
         @keyframes bounce {
-            0%, 80%, 100% { transform: scale(0); }
-            40% { transform: scale(1); }
+
+            0%,
+            80%,
+            100% {
+                transform: scale(0);
+            }
+
+            40% {
+                transform: scale(1);
+            }
         }
     </style>
 </head>
+
 <body>
 
-<div class="app-container">
-    <div class="chat-card">
-        <!-- Header -->
-        <div class="chat-header">
-            <img src="https://ssit.edu.in/img/sri-siddhartha-institute-of-technology-ssit-logo.png" class="bot-avatar" alt="SSIT Logo">
-            <div class="bot-info">
-                <h2>SSIT ECE Bot <span class="online-dot"></span></h2>
-                <p>Ask me anything about the ECE branch</p>
+    <div class="app-container">
+        <div class="chat-card">
+            <!-- Header -->
+            <div class="chat-header">
+                <img src="https://ssit.edu.in/img/sri-siddhartha-institute-of-technology-ssit-logo.png"
+                    class="bot-avatar" alt="SSIT Logo">
+                <div class="bot-info">
+                    <h2>SSIT ECE Bot <span class="online-dot"></span></h2>
+                    <p>Ask me anything about the ECE branch</p>
+                </div>
+                <button type="button" id="toggleSpeech" class="action-btn mic" title="Enable Auto-Speech"
+                    style="margin-left: auto;">
+                    <i class="fas fa-volume-mute" id="speechIcon"></i>
+                </button>
             </div>
-        </div>
 
-        <!-- Category Selector -->
-        <div class="category-section">
-            <div class="select-wrapper">
-                <select id="categorySelect" class="category-select">
-                    <option value="" disabled selected>Browse Categories (e.g. Fees, Placements)...</option>
-                    <!-- Options populated via JS -->
-                </select>
-            </div>
-        </div>
-
-        <!-- Sub-options Container area -->
-        <div id="subOptionsContainer" class="sub-options-container" style="display: none;">
-            <!-- Buttons populated via JS -->
-        </div>
-
-        <!-- Chat Messages -->
-        <div id="chatBody" class="chat-body">
-            <!-- Messages go here -->
-            <div class="message-wrapper bot">
-                <img src="https://i.ibb.co/fSNP7Rz/icons8-chatgpt-512.png" class="msg-avatar" alt="Bot">
-                <div class="message-bubble">
-                    Hello! I'm the SSIT ECE assistant. You can select a category above or type your question below.
-                    <span class="msg-time bot-time">Just now</span>
+            <!-- Category Selector -->
+            <div class="category-section">
+                <div class="select-wrapper">
+                    <select id="categorySelect" class="category-select">
+                        <option value="" disabled selected>Browse Categories (e.g. Fees, Placements)...</option>
+                        <!-- Options populated via JS -->
+                    </select>
                 </div>
             </div>
-            
-            <!-- Typing Indicator -->
-            <div id="typingIndicator" class="typing-indicator">
-                <span></span><span></span><span></span>
+
+            <!-- Sub-options Container area -->
+            <div id="subOptionsContainer" class="sub-options-container" style="display: none;">
+                <!-- Buttons populated via JS -->
+            </div>
+
+            <!-- Chat Messages -->
+            <div id="chatBody" class="chat-body">
+                <!-- Messages go here -->
+                <div class="message-wrapper bot">
+                    <img src="https://i.ibb.co/fSNP7Rz/icons8-chatgpt-512.png" class="msg-avatar" alt="Bot">
+                    <div class="message-bubble">
+                        Hello! I'm the SSIT ECE assistant. You can select a category above or type your question below.
+                        <span class="msg-time bot-time">Just now</span>
+                    </div>
+                </div>
+
+                <!-- Typing Indicator -->
+                <div id="typingIndicator" class="typing-indicator">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+
+            <!-- Footer / Input -->
+            <div class="chat-footer">
+                <form id="messageArea" class="input-group">
+                    <button type="button" id="startListening" class="action-btn mic" title="Voice Input">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <input type="text" id="text" name="msg" placeholder="Type your message..." autocomplete="off"
+                        class="type_msg" required />
+                    <button type="submit" id="send" class="action-btn" title="Send">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
             </div>
         </div>
-
-        <!-- Footer / Input -->
-        <div class="chat-footer">
-            <form id="messageArea" class="input-group">
-                <button type="button" id="startListening" class="action-btn mic" title="Voice Input">
-                    <i class="fas fa-microphone"></i>
-                </button>
-                <input type="text" id="text" name="msg" placeholder="Type your message..." autocomplete="off" class="type_msg" required/>
-                <button type="submit" id="send" class="action-btn" title="Send">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </form>
-        </div>
     </div>
-</div>
 
-<script>
-    $(document).ready(function() {
-        // Categories & Sub-options Data
-        const categories = {
-            "ECE Department": ["Overview", "Subjects", "Career", "Projects", "Overall"],
-            "Fees": ["Tuition Fees", "Hostel Fees", "Transport", "Overall"],
-            "Hostel": ["HMG Hostel", "Rajagruha Hostel", "Facilities", "Overall"],
-            "Placements": ["Highest Package", "Top Recruiters", "Statistics", "Training", "Overall"],
-            "Labs": ["VLSI Lab", "Embedded Systems Lab", "Communication Lab", "DSP Lab", "Overall"],
-            "Faculty": ["Professors", "Associate Professors", "Assistant Professors", "Overall"],
-            "Location": ["Address", "Map", "Transport", "Overall"]
-        };
+    <script>
+        $(document).ready(function () {
+            // Speech toggle state (default off)
+            let isSpeechEnabled = false;
 
-        // Populate Categories
-        const categorySelect = $("#categorySelect");
-        $.each(categories, function(key, value) {
-            categorySelect.append($("<option></option>").attr("value", key).text(key));
-        });
+            $("#toggleSpeech").click(function () {
+                isSpeechEnabled = !isSpeechEnabled;
+                const icon = $("#speechIcon");
+                const btn = $(this);
+                if (isSpeechEnabled) {
+                    icon.removeClass("fa-volume-mute").addClass("fa-volume-up");
+                    btn.attr("title", "Disable Auto-Speech");
+                    btn.removeClass("mic");
+                } else {
+                    icon.removeClass("fa-volume-up").addClass("fa-volume-mute");
+                    btn.attr("title", "Enable Auto-Speech");
+                    btn.addClass("mic");
+                    if ('speechSynthesis' in window) {
+                        window.speechSynthesis.cancel();
+                    }
+                }
+            });
 
-        // Handle Category Selection
-        categorySelect.on("change", function() {
-            const selectedCat = $(this).val();
-            const subOptionsContainer = $("#subOptionsContainer");
-            subOptionsContainer.empty();
-            
-            if(selectedCat && categories[selectedCat]) {
-                subOptionsContainer.show();
-                categories[selectedCat].forEach(function(subOpt) {
-                    const btn = $("<button></button>")
-                        .addClass("sub-option-btn")
-                        .text(subOpt)
-                        .on("click", function() {
-                            // User clicked a sub-option, process it as a message
-                            const comboMessage = selectedCat + " - " + subOpt;
-                            processMessage(comboMessage);
-                        });
-                    subOptionsContainer.append(btn);
-                });
-            } else {
-                subOptionsContainer.hide();
-            }
-        });
+            // Categories & Sub-options Data
+            const categories = {
+                "ECE Department": ["Overview", "Subjects", "Career", "Projects", "Overall"],
+                "Fees": ["Tuition Fees", "Hostel Fees", "Transport", "Overall"],
+                "Hostel": ["HMG Hostel", "Rajagruha Hostel", "Facilities", "Overall"],
+                "Placements": ["Highest Package", "Top Recruiters", "Statistics", "Training", "Overall"],
+                "Labs": ["VLSI Lab", "Embedded Systems Lab", "Communication Lab", "DSP Lab", "Overall"],
+                "Faculty": ["Professors", "Associate Professors", "Assistant Professors", "Overall"],
+                "Location": ["Address", "Map", "Transport", "Overall"],
+                "Question Papers and Notes": ["1st Year", "2nd Year", "3rd Year", "4th Year"],
+                "Presentations": ["Major Project", "Technical Seminar", "Overall"]
+            };
 
-        // Initialize bot default time
-        const initialDate = new Date();
-        $(".bot-time").text(initialDate.getHours() + ":" + (initialDate.getMinutes() < 10 ? '0' : '') + initialDate.getMinutes());
+            // Populate Categories
+            const categorySelect = $("#categorySelect");
+            $.each(categories, function (key, value) {
+                categorySelect.append($("<option></option>").attr("value", key).text(key));
+            });
 
-        // Process user message
-        function processMessage(msgText) {
-            if(!msgText.trim()) return;
+            // Handle Category Selection
+            categorySelect.on("change", function () {
+                const selectedCat = $(this).val();
+                const subOptionsContainer = $("#subOptionsContainer");
+                subOptionsContainer.empty();
 
-            const date = new Date();
-            const hour = date.getHours();
-            const minute = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
-            const str_time = hour + ":" + minute;
+                if (selectedCat && categories[selectedCat]) {
+                    subOptionsContainer.show();
+                    categories[selectedCat].forEach(function (subOpt) {
+                        const btn = $("<button></button>")
+                            .addClass("sub-option-btn")
+                            .text(subOpt)
+                            .on("click", function () {
+                                // User clicked a sub-option, process it as a message
+                                const comboMessage = selectedCat + " - " + subOpt;
+                                processMessage(comboMessage);
+                            });
+                        subOptionsContainer.append(btn);
+                    });
+                } else {
+                    subOptionsContainer.hide();
+                }
+            });
 
-            // Render User Message
-            const userHtml = `
+            // Initialize bot default time
+            const initialDate = new Date();
+            $(".bot-time").text(initialDate.getHours() + ":" + (initialDate.getMinutes() < 10 ? '0' : '') + initialDate.getMinutes());
+
+            // Process user message
+            function processMessage(msgText) {
+                if (!msgText.trim()) return;
+
+                // 1. When a new message is sent or received, any ongoing speech must STOP immediately.
+                // 2. When switching to a new chat, all previous speech queues must be cleared.
+                if ('speechSynthesis' in window) {
+                    window.speechSynthesis.cancel();
+                }
+
+                const date = new Date();
+                const hour = date.getHours();
+                const minute = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+                const str_time = hour + ":" + minute;
+
+                // Render User Message
+                const userHtml = `
                 <div class="message-wrapper user">
                     <img src="https://i.ibb.co/d5b84Xw/Untitled-design.png" class="msg-avatar" alt="User">
                     <div class="message-bubble">
@@ -472,26 +577,26 @@
                 </div>
             `;
 
-            $("#text").val("");
-            // Append before typing indicator
-            $(userHtml).insertBefore("#typingIndicator");
-            scrollToBottom();
-            
-            // Show typing indicator
-            $("#typingIndicator").css("display", "flex");
-            scrollToBottom();
+                $("#text").val("");
+                // Append before typing indicator
+                $(userHtml).insertBefore("#typingIndicator");
+                scrollToBottom();
 
-            // Send to Bot
-            $.ajax({
-                data: { msg: msgText },
-                type: "POST",
-                url: "/get",
-            }).done(function(response) {
-                // Hide typing indicator
-                $("#typingIndicator").hide();
-                
-                // Render Bot Message
-                const botHtml = `
+                // Show typing indicator
+                $("#typingIndicator").css("display", "flex");
+                scrollToBottom();
+
+                // Send to Bot
+                $.ajax({
+                    data: { msg: msgText },
+                    type: "POST",
+                    url: "/get",
+                }).done(function (response) {
+                    // Hide typing indicator
+                    $("#typingIndicator").hide();
+
+                    // Render Bot Message
+                    const botHtml = `
                     <div class="message-wrapper bot">
                         <img src="https://i.ibb.co/fSNP7Rz/icons8-chatgpt-512.png" class="msg-avatar" alt="Bot">
                         <div class="message-bubble">
@@ -500,18 +605,21 @@
                         </div>
                     </div>
                 `;
-                $(botHtml).insertBefore("#typingIndicator");
-                scrollToBottom();
-                
-                // Text to Speech
-                if ('speechSynthesis' in window) {
-                    var speech = new SpeechSynthesisUtterance(response.response_text);
-                    window.speechSynthesis.speak(speech);
-                }
-            }).fail(function(jqXHR, textStatus, errorThrown) {
-                $("#typingIndicator").hide();
-                console.error("Error:", textStatus, errorThrown);
-                const errorHtml = `
+                    $(botHtml).insertBefore("#typingIndicator");
+                    scrollToBottom();
+
+                    // Text to Speech
+                    if ('speechSynthesis' in window && isSpeechEnabled) {
+                        // 3. Only the latest message should be spoken.
+                        // 4. Prevent overlapping or delayed speech.
+                        window.speechSynthesis.cancel();
+                        var speech = new SpeechSynthesisUtterance(response.response_text);
+                        window.speechSynthesis.speak(speech);
+                    }
+                }).fail(function (jqXHR, textStatus, errorThrown) {
+                    $("#typingIndicator").hide();
+                    console.error("Error:", textStatus, errorThrown);
+                    const errorHtml = `
                     <div class="message-wrapper bot">
                         <img src="https://i.ibb.co/fSNP7Rz/icons8-chatgpt-512.png" class="msg-avatar" alt="Bot">
                         <div class="message-bubble" style="color:#ef4444;">
@@ -520,59 +628,92 @@
                         </div>
                     </div>
                 `;
-                $(errorHtml).insertBefore("#typingIndicator");
-                scrollToBottom();
-            });
-        }
-
-        function scrollToBottom() {
-            const chatBody = $("#chatBody");
-            chatBody.scrollTop(chatBody[0].scrollHeight);
-        }
-
-        // Form Submission
-        $("#messageArea").on("submit", function(event) {
-            event.preventDefault();
-            const rawText = $("#text").val();
-            processMessage(rawText);
-        });
-
-        // Speech Recognition
-        $("#startListening").click(function() {
-            if ('webkitSpeechRecognition' in window) {
-                const recognition = new webkitSpeechRecognition();
-                recognition.lang = 'en-US';
-                
-                // Visual feedback while speaking
-                $(this).css('background', '#ef4444');
-                $(this).css('color', '#fff');
-                
-                recognition.start();
-                
-                recognition.onresult = function(event) {
-                    // Reset styling
-                    $("#startListening").css('background', '');
-                    $("#startListening").css('color', '');
-                    
-                    const speechToText = event.results[0][0].transcript;
-                    $("#text").val(speechToText); 
-                    processMessage(speechToText);
-                    recognition.stop();
-                }
-                
-                recognition.onerror = function() {
-                    $("#startListening").css('background', '');
-                    $("#startListening").css('color', '');
-                }
-                recognition.onend = function() {
-                    $("#startListening").css('background', '');
-                    $("#startListening").css('color', '');
-                }
-            } else {
-                alert("Speech recognition is not supported in this browser.");
+                    $(errorHtml).insertBefore("#typingIndicator");
+                    scrollToBottom();
+                });
             }
+
+            function scrollToBottom() {
+                const chatBody = $("#chatBody");
+                chatBody.scrollTop(chatBody[0].scrollHeight);
+            }
+
+            // Form Submission
+            $("#messageArea").on("submit", function (event) {
+                event.preventDefault();
+                const rawText = $("#text").val();
+                processMessage(rawText);
+            });
+
+            // Speech Recognition
+            $("#startListening").click(function () {
+                if ('webkitSpeechRecognition' in window) {
+                    // Stop speech if user wants to speak a new query
+                    if ('speechSynthesis' in window) {
+                        window.speechSynthesis.cancel();
+                    }
+                    const recognition = new webkitSpeechRecognition();
+                    recognition.lang = 'en-US';
+
+                    // Visual feedback while speaking
+                    $(this).css('background', '#ef4444');
+                    $(this).css('color', '#fff');
+
+                    recognition.start();
+
+                    recognition.onresult = function (event) {
+                        // Reset styling
+                        $("#startListening").css('background', '');
+                        $("#startListening").css('color', '');
+
+                        const speechToText = event.results[0][0].transcript;
+                        $("#text").val(speechToText);
+                        processMessage(speechToText);
+                        recognition.stop();
+                    }
+
+                    recognition.onerror = function () {
+                        $("#startListening").css('background', '');
+                        $("#startListening").css('color', '');
+                    }
+                    recognition.onend = function () {
+                        $("#startListening").css('background', '');
+                        $("#startListening").css('color', '');
+                    }
+                } else {
+                    alert("Speech recognition is not supported in this browser.");
+                }
+            });
         });
-    });
-</script>
+
+        // Global search filter for dynamically generated notes lists
+        window.filterNotes = function(inputElement, listId) {
+            let filter = inputElement.value.toUpperCase();
+            let container = document.getElementById(listId);
+            if (!container) return;
+            
+            let items = container.querySelectorAll(".notes-list li");
+            items.forEach(function(item) {
+                let text = item.textContent || item.innerText;
+                if (text.toUpperCase().indexOf(filter) > -1) {
+                    item.style.display = "";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+
+            // Hide headers if all children are hidden
+            let sections = container.querySelectorAll(".subject-section");
+            sections.forEach(function(section) {
+                let visibleLinks = section.querySelectorAll("li:not([style*='display: none'])");
+                if (visibleLinks.length === 0) {
+                    section.style.display = "none";
+                } else {
+                    section.style.display = "block";
+                }
+            });
+        };
+    </script>
 </body>
+
 </html>

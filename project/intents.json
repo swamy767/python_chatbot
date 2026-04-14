@@ -1,6 +1,86 @@
 {
   "intents": [
     {
+      "tag": "question_papers_general",
+      "patterns": [
+        "give me question papers",
+        "can i get question papers",
+        "question papers please",
+        "how to get previous year question papers",
+        "internals question papers",
+        "see question papers",
+        "provide question papers",
+        "where to find question papers",
+        "I need question papers"
+      ],
+      "responses": [
+        "Sure! Which year's question papers are you looking for? (e.g., '1st year', '2nd year', etc.)"
+      ],
+      "context_set": "year_selection"
+    },
+    {
+      "tag": "question_papers_2nd_year",
+      "patterns": [
+        "2nd year materials",
+        "Question Papers - 2nd Year",
+        "Second Year - AC",
+        "which question papers are available for 2nd year",
+        "2nd year question papers and notes",
+        "Second Year - VLSI",
+        "Second Year - Overall",
+        "Question Papers and Notes - 2nd Year",
+        "Second Year - Question Papers",
+        "notes for 2nd year",
+        "can i get 2nd year question papers",
+        "second year question papers please",
+        "what question papers are available for 2nd year",
+        "give me second year materials",
+        "Second Year - DSP",
+        "how to get 2nd year question papers",
+        "give me 2nd year question papers",
+        "Second Year - CS",
+        "2nd year notes overall",
+        "2nd year",
+        "2nd year previous year papers"
+      ],
+      "responses": [
+        "\n    <div id=\"notes-2nd\" class=\"notes-list-container\">\n        <input type=\"text\" class=\"notes-search-input\" onkeyup=\"filterNotes(this, 'notes-2nd')\" placeholder=\"Search files... (e.g. AC)\">\n    \n        <div class=\"subject-section\" data-subject=\"Question Papers\">\n            <h4>Question Papers</h4>\n            <ul class=\"notes-list\">\n        <li><a href=\"/static/notes/2nd%20year/4th%20Sem%20ECE%20old%20question%20papers%202023-24.pdf\" target=\"_blank\">4th Sem ECE old question papers 2023-24 \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/AEC%202023%20internals%20and%20SEE%20question%20papers.pdf\" target=\"_blank\">AEC 2023 internals and SEE question papers \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/DEC%202023%20internals%20and%20SEE%20question%20papers.pdf\" target=\"_blank\">DEC 2023 internals and SEE question papers \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/Management%20Question%20Papers.pdf\" target=\"_blank\">Management Question Papers \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/Network%20Theory%202023%20internals%20and%20SEE%20question%20papers.pdf\" target=\"_blank\">Network Theory 2023 internals and SEE question papers \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/Network%20theory%20main%20Question%20Papers.pdf\" target=\"_blank\">Network theory main Question Papers \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/Signals%20and%20Systems%20interanls%20question%20papers.pdf\" target=\"_blank\">Signals and Systems interanls question papers \u2014 Click here</a></li>\n\n            </ul>\n        </div>\n        \n        <div class=\"subject-section\" data-subject=\"AC\">\n            <h4>AC</h4>\n            <ul class=\"notes-list\">\n        <li><a href=\"/static/notes/2nd%20year/AC%20DSBSC%20and%20etc%20notes.pdf\" target=\"_blank\">AC DSBSC and etc notes \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/AC%20UnIT2.pdf\" target=\"_blank\">AC UnIT2 \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/unit%201%20%20AC%20pdf.pdf\" target=\"_blank\">unit 1  AC pdf \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/unit%203%20AC%20%281%29.pdf\" target=\"_blank\">unit 3 AC (1) \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/unit%203%20AC%20%281%29%20new.pdf\" target=\"_blank\">unit 3 AC (1) new \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/unit%204%20AC%20.pdf\" target=\"_blank\">unit 4 AC  \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/Unit%20part%202%20AC%20notes.pdf\" target=\"_blank\">Unit part 2 AC notes \u2014 Click here</a></li>\n\n            </ul>\n        </div>\n        \n        <div class=\"subject-section\" data-subject=\"CS\">\n            <h4>CS</h4>\n            <ul class=\"notes-list\">\n        <li><a href=\"/static/notes/2nd%20year/Cs-2nd%20order%20system.pdf\" target=\"_blank\">Cs-2nd order system \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/timers%20basics.pdf\" target=\"_blank\">timers basics \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/unit%205%20CS.pdf\" target=\"_blank\">unit 5 CS \u2014 Click here</a></li>\n\n            </ul>\n        </div>\n        \n        <div class=\"subject-section\" data-subject=\"Control System\">\n            <h4>Control System</h4>\n            <ul class=\"notes-list\">\n        <li><a href=\"/static/notes/2nd%20year/control%20system%20.pdf\" target=\"_blank\">control system  \u2014 Click here</a></li>\n\n            </ul>\n        </div>\n        \n        <div class=\"subject-section\" data-subject=\"EVS\">\n            <h4>EVS</h4>\n            <ul class=\"notes-list\">\n        <li><a href=\"/static/notes/2nd%20year/EVS%20Unit-1.pdf\" target=\"_blank\">EVS Unit-1 \u2014 Click here</a></li>\n\n            </ul>\n        </div>\n        \n        <div class=\"subject-section\" data-subject=\"MC\">\n            <h4>MC</h4>\n            <ul class=\"notes-list\">\n        <li><a href=\"/static/notes/2nd%20year/MC%20Material.pdf\" target=\"_blank\">MC Material \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/MC%20unit-2.pdf\" target=\"_blank\">MC unit-2 \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/UNIT%205%20MC%208051.pdf\" target=\"_blank\">UNIT 5 MC 8051 \u2014 Click here</a></li>\n\n            </ul>\n        </div>\n        \n        <div class=\"subject-section\" data-subject=\"ME\">\n            <h4>ME</h4>\n            <ul class=\"notes-list\">\n        <li><a href=\"/static/notes/2nd%20year/Management%20and%20Entrepreneurship%20unit%201.new.pdf\" target=\"_blank\">Management and Entrepreneurship unit 1.new \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/MC%20Handout%20and%20homework.pdf\" target=\"_blank\">MC Handout and homework \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/Mechanical%20System.pdf\" target=\"_blank\">Mechanical System \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/Time%20domain%20Analysis.pdf\" target=\"_blank\">Time domain Analysis \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/unit%204%20ME.pdf\" target=\"_blank\">unit 4 ME \u2014 Click here</a></li>\n\n            </ul>\n        </div>\n        \n        <div class=\"subject-section\" data-subject=\"Micro processor\">\n            <h4>Micro processor</h4>\n            <ul class=\"notes-list\">\n        <li><a href=\"/static/notes/2nd%20year/Micro%20processor%20and%20Micro%20Controller.pdf\" target=\"_blank\">Micro processor and Micro Controller \u2014 Click here</a></li>\n\n            </ul>\n        </div>\n        \n        <div class=\"subject-section\" data-subject=\"Opearational Amplifier\">\n            <h4>Opearational Amplifier</h4>\n            <ul class=\"notes-list\">\n        <li><a href=\"/static/notes/2nd%20year/Opearational%20Amplifier%20Application.pdf\" target=\"_blank\">Opearational Amplifier Application \u2014 Click here</a></li>\n\n            </ul>\n        </div>\n        \n        <div class=\"subject-section\" data-subject=\"Others\">\n            <h4>Others</h4>\n            <ul class=\"notes-list\">\n        <li><a href=\"/static/notes/2nd%20year/8085%20Microcontroller%20and%20Applications%20-%20Unit%203.pptx\" target=\"_blank\">8085 Microcontroller and Applications - Unit 3 \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/Byte%20Level%20logocal%20Operation%20notes.pdf\" target=\"_blank\">Byte Level logocal Operation notes \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/convulution%20sum.pdf\" target=\"_blank\">convulution sum \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/Energy%20.pdf\" target=\"_blank\">Energy  \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/Fields%20and%20Waves%20problems.pdf\" target=\"_blank\">Fields and Waves problems \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/Hilbert%20Transform.pdf\" target=\"_blank\">Hilbert Transform \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/module%203%20Managemant%20and%20E...pdf\" target=\"_blank\">module 3 Managemant and E.. \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/PREPARATION%20OF%20PROJECT%20AND%20ERP.pdf\" target=\"_blank\">PREPARATION OF PROJECT AND ERP \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/problems%20on%20Freq%20response%20.pdf\" target=\"_blank\">problems on Freq response  \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/Skill-topic.pdf\" target=\"_blank\">Skill-topic \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/Small%20signal%20Analysis.pdf\" target=\"_blank\">Small signal Analysis \u2014 Click here</a></li>\n<li><a href=\"/static/notes/2nd%20year/TMOD%20registers%20and%20etcc.pdf\" target=\"_blank\">TMOD registers and etcc \u2014 Click here</a></li>\n\n            </ul>\n        </div>\n        </div>"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "question_papers_aec_2nd_year",
+      "patterns": [
+        "provide aec notes",
+        "2nd year aec paper",
+        "aec question papers and notes",
+        "can you please give me the aec notes",
+        "analog electronics circuits question paper",
+        "aec pdf",
+        "give me aec question paper",
+        "can i get analog electronics circuits question paper",
+        "aec internals",
+        "aec notes pdf",
+        "aec notes please",
+        "analog electronics circuits previous year paper",
+        "internals aec question papers",
+        "see question papers for aec",
+        "aec previous year papers",
+        "where is aec question paper",
+        "provide analog electronics circuits question papers",
+        "give me aec notes",
+        "i need aec notes",
+        "can i have aec question paper",
+        "can you please give me the aec question paper",
+        "i want aec question paper",
+        "aec question paper please"
+      ],
+      "responses": [
+        "Here are the AEC 2023 Internals and SEE question papers for 2nd Year Analog Electronics Circuits (AEC): <a href='/static/AEC_2023_internals_and_SEE_question_papers.pdf' target='_blank' style='color:#8b5cf6; text-decoration:underline; font-weight:bold;'>Download PDF</a>."
+      ],
+      "context_set": ""
+    },
+    {
       "tag": "greeting",
       "patterns": [
         "hola",
@@ -4321,42 +4401,154 @@
         "can i know ece faculty list",
         "tell me who is the hod of ece"
       ],
-     "responses": [
-  {
-    "faculty": [
-      {"name": "Dr. M.C. Chandrashekhar", "qualification": "M.Tech & Ph.D", "designation": "Professor & Head"},
-      {"name": "Dr. Suresh M", "qualification": "M.Tech & Ph.D", "designation": "Professor"},
-      {"name": "Divyaprabha", "qualification": "M.Tech", "designation": "Assistant Professor"},
-      {"name": "M C Basavaraja", "qualification": "M.Tech", "designation": "Assistant Professor"},
-      {"name": "Dr. Sunil T D", "qualification": "M.Tech & Ph.D", "designation": "Professor"},
-      {"name": "Dr. Anitha Devi M.D", "qualification": "M.Tech & Ph.D", "designation": "Associate Professor"},
-      {"name": "Dr. Chidananda Murthy M V", "qualification": "M.Tech & Ph.D", "designation": "Associate Professor"},
-      {"name": "Dr. Sreerangappa.M", "qualification": "M.Tech & Ph.D", "designation": "Associate Professor"},
-      {"name": "Dr. Shyla.M.K", "qualification": "M.Tech & Ph.D", "designation": "Associate Professor"},
-      {"name": "Dr. Komala K", "qualification": "M.Tech & Ph.D", "designation": "Associate Professor"},
-      {"name": "Dr. Ashwini S Shivannavar", "qualification": "M.Tech & Ph.D", "designation": "Associate Professor"},
-      {"name": "Dr. Praveen Kumar Y G", "qualification": "M.Tech & Ph.D", "designation": "Associate Professor"},
-      {"name": "Dr. Sharada Guptha M N", "qualification": "M.Tech & Ph.D", "designation": "Associate Professor"},
-      {"name": "Dr. Keshava Murthy T G", "qualification": "M.Tech & Ph.D", "designation": "Associate Professor"},
-      {"name": "C R Mohan Kumar", "qualification": "M.Tech", "designation": "Assistant Professor"},
-      {"name": "Ravisimha B N", "qualification": "M.Tech", "designation": "Assistant Professor"},
-      {"name": "PRAVEEN M", "qualification": "M.Tech", "designation": "Assistant Professor"},
-      {"name": "Bindu A U", "qualification": "M.Tech", "designation": "Assistant Professor"},
-      {"name": "Dr. Ghouse Ahamed Z", "qualification": "M.Tech & Ph.D", "designation": "Associate Professor"},
-      {"name": "M R Maanasa", "qualification": "M.Tech", "designation": "Assistant Professor"},
-      {"name": "Revanna B R", "qualification": "M.Tech", "designation": "Assistant Professor"},
-      {"name": "SRIRAMU D S", "qualification": "M.Tech", "designation": "Assistant Professor"},
-      {"name": "Sriraksha Devaraj", "qualification": "M.Tech", "designation": "Assistant Professor"},
-      {"name": "Vidya K V", "qualification": "M.Tech", "designation": "Assistant Professor"},
-      {"name": "Nicy Siby", "qualification": "M.Tech", "designation": "Assistant Professor"},
-      {"name": "Hamsalekha N P", "qualification": "M.Tech", "designation": "Assistant Professor"},
-      {"name": "Bharath Kumar T S", "qualification": "M.Tech", "designation": "Assistant Professor"},
-      {"name": "Mahalingesh T C", "qualification": "M.Tech", "designation": "Assistant Professor"}
-    ]
-  }
-],
-"context_set": ""
-},
+      "responses": [
+        {
+          "faculty": [
+            {
+              "name": "Dr. M.C. Chandrashekhar",
+              "qualification": "M.Tech & Ph.D",
+              "designation": "Professor & Head"
+            },
+            {
+              "name": "Dr. Suresh M",
+              "qualification": "M.Tech & Ph.D",
+              "designation": "Professor"
+            },
+            {
+              "name": "Divyaprabha",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
+            },
+            {
+              "name": "M C Basavaraja",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
+            },
+            {
+              "name": "Dr. Sunil T D",
+              "qualification": "M.Tech & Ph.D",
+              "designation": "Professor"
+            },
+            {
+              "name": "Dr. Anitha Devi M.D",
+              "qualification": "M.Tech & Ph.D",
+              "designation": "Associate Professor"
+            },
+            {
+              "name": "Dr. Chidananda Murthy M V",
+              "qualification": "M.Tech & Ph.D",
+              "designation": "Associate Professor"
+            },
+            {
+              "name": "Dr. Sreerangappa.M",
+              "qualification": "M.Tech & Ph.D",
+              "designation": "Associate Professor"
+            },
+            {
+              "name": "Dr. Shyla.M.K",
+              "qualification": "M.Tech & Ph.D",
+              "designation": "Associate Professor"
+            },
+            {
+              "name": "Dr. Komala K",
+              "qualification": "M.Tech & Ph.D",
+              "designation": "Associate Professor"
+            },
+            {
+              "name": "Dr. Ashwini S Shivannavar",
+              "qualification": "M.Tech & Ph.D",
+              "designation": "Associate Professor"
+            },
+            {
+              "name": "Dr. Praveen Kumar Y G",
+              "qualification": "M.Tech & Ph.D",
+              "designation": "Associate Professor"
+            },
+            {
+              "name": "Dr. Sharada Guptha M N",
+              "qualification": "M.Tech & Ph.D",
+              "designation": "Associate Professor"
+            },
+            {
+              "name": "Dr. Keshava Murthy T G",
+              "qualification": "M.Tech & Ph.D",
+              "designation": "Associate Professor"
+            },
+            {
+              "name": "C R Mohan Kumar",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
+            },
+            {
+              "name": "Ravisimha B N",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
+            },
+            {
+              "name": "PRAVEEN M",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
+            },
+            {
+              "name": "Bindu A U",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
+            },
+            {
+              "name": "Dr. Ghouse Ahamed Z",
+              "qualification": "M.Tech & Ph.D",
+              "designation": "Associate Professor"
+            },
+            {
+              "name": "M R Maanasa",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
+            },
+            {
+              "name": "Revanna B R",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
+            },
+            {
+              "name": "SRIRAMU D S",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
+            },
+            {
+              "name": "Sriraksha Devaraj",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
+            },
+            {
+              "name": "Vidya K V",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
+            },
+            {
+              "name": "Nicy Siby",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
+            },
+            {
+              "name": "Hamsalekha N P",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
+            },
+            {
+              "name": "Bharath Kumar T S",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
+            },
+            {
+              "name": "Mahalingesh T C",
+              "qualification": "M.Tech",
+              "designation": "Assistant Professor"
+            }
+          ]
+        }
+      ],
+      "context_set": ""
+    },
     {
       "tag": "ece_department_history",
       "patterns": [
@@ -4632,6 +4824,117 @@
       ],
       "responses": [
         "SSIT provides separate hostel facilities for boys and girls. The boys' hostels include HMG Hostel and Rajagruha Hostel, which offer basic amenities, Wi-Fi, dining, and security to ensure a comfortable stay for all outstation students."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "question_papers_dec",
+      "patterns": [
+        "give me dec notes",
+        "i need dec notes",
+        "dec notes please",
+        "dec question paper",
+        "give me dec question paper",
+        "digital electronics circuits notes",
+        "digital electronics question paper",
+        "dec internals",
+        "dec previous year papers"
+      ],
+      "responses": [
+        "Here are the latest DEC 2023 Internals and SEE question papers: <a href='/static/DEC_2023_internals_and_SEE_question_papers.pdf' target='_blank' style='color:#8b5cf6; text-decoration:underline; font-weight:bold;'>Download DEC PDF</a>."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "question_papers_sas",
+      "patterns": [
+        "give me sas notes",
+        "i need sas notes",
+        "sas notes please",
+        "sas question paper",
+        "give me sas question paper",
+        "signals and systems notes",
+        "signals and systems question paper",
+        "sas internals",
+        "sas previous year papers"
+      ],
+      "responses": [
+        "Here are the latest SAS 2023 Internals and SEE question papers: <a href='/static/SAS_2023_internals_and_SEE_question_papers.pdf' target='_blank' style='color:#8b5cf6; text-decoration:underline; font-weight:bold;'>Download SAS PDF</a>."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "question_papers_3rd_year",
+      "patterns": [
+        "Third Year - DSP",
+        "notes for 3rd year",
+        "Question Papers - 3rd Year",
+        "what question papers are available for 3rd year",
+        "give me third year materials",
+        "Third Year - Question Papers",
+        "3rd year materials",
+        "Third Year - ME",
+        "Question Papers and Notes - 3rd Year",
+        "3rd year notes overall",
+        "Third Year - VLSI",
+        "Third Year - Overall",
+        "3rd year question papers and notes"
+      ],
+      "responses": [
+        "\n    <div id=\"notes-3rd\" class=\"notes-list-container\">\n        <input type=\"text\" class=\"notes-search-input\" onkeyup=\"filterNotes(this, 'notes-3rd')\" placeholder=\"Search files... (e.g. AC)\">\n    \n        <div class=\"subject-section\" data-subject=\"DSP\">\n            <h4>DSP</h4>\n            <ul class=\"notes-list\">\n        <li><a href=\"/static/notes/3rd%20year/DSP%20text%20book.pdf\" target=\"_blank\">DSP text book \u2014 Click here</a></li>\n<li><a href=\"/static/notes/3rd%20year/DSP%281st%20unit%29.pdf\" target=\"_blank\">DSP(1st unit) \u2014 Click here</a></li>\n<li><a href=\"/static/notes/3rd%20year/DSP%282nd%20unit%29.pdf\" target=\"_blank\">DSP(2nd unit) \u2014 Click here</a></li>\n<li><a href=\"/static/notes/3rd%20year/DSP%283rd%20unit%29.pdf\" target=\"_blank\">DSP(3rd unit) \u2014 Click here</a></li>\n<li><a href=\"/static/notes/3rd%20year/DSP%28unit-4%29.pdf\" target=\"_blank\">DSP(unit-4) \u2014 Click here</a></li>\n\n            </ul>\n        </div>\n        \n        <div class=\"subject-section\" data-subject=\"ME\">\n            <h4>ME</h4>\n            <ul class=\"notes-list\">\n        <li><a href=\"/static/notes/3rd%20year/Management%20and%20Entrepreneurship%20unit%201.new.pdf\" target=\"_blank\">Management and Entrepreneurship unit 1.new \u2014 Click here</a></li>\n<li><a href=\"/static/notes/3rd%20year/Question%20bank%20ME.pdf\" target=\"_blank\">Question bank ME \u2014 Click here</a></li>\n<li><a href=\"/static/notes/3rd%20year/unit%204%20ME.pdf\" target=\"_blank\">unit 4 ME \u2014 Click here</a></li>\n\n            </ul>\n        </div>\n        \n        <div class=\"subject-section\" data-subject=\"Others\">\n            <h4>Others</h4>\n            <ul class=\"notes-list\">\n        <li><a href=\"/static/notes/3rd%20year/module%203%20M%20E.pdf\" target=\"_blank\">module 3 M E \u2014 Click here</a></li>\n<li><a href=\"/static/notes/3rd%20year/PREPARATION%20OF%20PROJECT%20AND%20ERP.pdf\" target=\"_blank\">PREPARATION OF PROJECT AND ERP \u2014 Click here</a></li>\n\n            </ul>\n        </div>\n        \n        <div class=\"subject-section\" data-subject=\"VLSI\">\n            <h4>VLSI</h4>\n            <ul class=\"notes-list\">\n        <li><a href=\"/static/notes/3rd%20year/vlsi%20unit%2004.pdf\" target=\"_blank\">vlsi unit 04 \u2014 Click here</a></li>\n<li><a href=\"/static/notes/3rd%20year/VLSI%20unit%202.pdf\" target=\"_blank\">VLSI unit 2 \u2014 Click here</a></li>\n<li><a href=\"/static/notes/3rd%20year/VLSI%20unit%203.pdf\" target=\"_blank\">VLSI unit 3 \u2014 Click here</a></li>\n\n            </ul>\n        </div>\n        </div>"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "presentation_files_intent",
+      "patterns": [
+        "Presentations - Technical Seminar",
+        "Presentation - Overall",
+        "seminar abstracts",
+        "Presentation - Abstracts",
+        "Presentation - Reports",
+        "presentation materials",
+        "give me presentation files",
+        "Presentations - Overall",
+        "Presentations - Major Project",
+        "Presentation - Seminars"
+      ],
+      "responses": [
+        "\n    <div id=\"notes-pres\" class=\"notes-list-container\">\n        <input type=\"text\" class=\"notes-search-input\" onkeyup=\"filterNotes(this, 'notes-pres')\" placeholder=\"Search files... (e.g. AC)\">\n    \n        <div class=\"subject-section\" data-subject=\"AC\">\n            <h4>AC</h4>\n            <ul class=\"notes-list\">\n        <li><a href=\"/static/notes/presentation/2.%20%20ACK.doc\" target=\"_blank\">2.  ACK \u2014 Click here</a></li>\n<li><a href=\"/static/notes/presentation/3.%20%20ACK.doc\" target=\"_blank\">3.  ACK \u2014 Click here</a></li>\n<li><a href=\"/static/notes/presentation/3.%20abstract.docx\" target=\"_blank\">3. abstract \u2014 Click here</a></li>\n<li><a href=\"/static/notes/presentation/4.%20abstract.docx\" target=\"_blank\">4. abstract \u2014 Click here</a></li>\n\n            </ul>\n        </div>\n        \n        <div class=\"subject-section\" data-subject=\"Documentation\">\n            <h4>Documentation</h4>\n            <ul class=\"notes-list\">\n        <li><a href=\"/static/notes/presentation/1.frontsheet.doc\" target=\"_blank\">1.frontsheet \u2014 Click here</a></li>\n<li><a href=\"/static/notes/presentation/1.frontsheet%20%281%29.doc\" target=\"_blank\">1.frontsheet (1) \u2014 Click here</a></li>\n<li><a href=\"/static/notes/presentation/2.%20certificate.doc\" target=\"_blank\">2. certificate \u2014 Click here</a></li>\n<li><a href=\"/static/notes/presentation/4.%20content%20index.docx\" target=\"_blank\">4. content index \u2014 Click here</a></li>\n<li><a href=\"/static/notes/presentation/5.%20INDEX.docx\" target=\"_blank\">5. INDEX \u2014 Click here</a></li>\n\n            </ul>\n        </div>\n        \n        <div class=\"subject-section\" data-subject=\"Reports\">\n            <h4>Reports</h4>\n            <ul class=\"notes-list\">\n        <li><a href=\"/static/notes/presentation/5.report.docx\" target=\"_blank\">5.report \u2014 Click here</a></li>\n<li><a href=\"/static/notes/presentation/6.report.docx\" target=\"_blank\">6.report \u2014 Click here</a></li>\n\n            </ul>\n        </div>\n        \n        <div class=\"subject-section\" data-subject=\"Seminars/PPTs\">\n            <h4>Seminars/PPTs</h4>\n            <ul class=\"notes-list\">\n        <li><a href=\"/static/notes/presentation/phase-1%20ppt%20%20MAJOR%20PROJECT%202025-26.ppt\" target=\"_blank\">phase-1 ppt  MAJOR PROJECT 2025-26 \u2014 Click here</a></li>\n<li><a href=\"/static/notes/presentation/synopsis%20of%20TECHNICAL%20SEMINAR%202025-26.doc\" target=\"_blank\">synopsis of TECHNICAL SEMINAR 2025-26 \u2014 Click here</a></li>\n<li><a href=\"/static/notes/presentation/technical%20seminar%20ppt%20%202025-26.ppt\" target=\"_blank\">technical seminar ppt  2025-26 \u2014 Click here</a></li>\n\n            </ul>\n        </div>\n        </div>"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "question_papers_1st_year",
+      "patterns": [
+        "1st year",
+        "first year",
+        "1st year question papers",
+        "first year notes",
+        "1st year materials",
+        "Question Papers - 1st Year",
+        "first year question paper",
+        "Question Papers and Notes - 1st Year"
+      ],
+      "responses": [
+        "Materials and question papers for the 1st Year have not been uploaded yet. Please check back later!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "question_papers_4th_year",
+      "patterns": [
+        "4th year",
+        "fourth year",
+        "4th year question papers",
+        "fourth year notes",
+        "4th year materials",
+        "Question Papers - 4th Year",
+        "fourth year question paper",
+        "Question Papers and Notes - 4th Year"
+      ],
+      "responses": [
+        "Materials and question papers for the 4th Year have not been uploaded yet. Please check back later!"
       ],
       "context_set": ""
     }

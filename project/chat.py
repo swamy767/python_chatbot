@@ -7,7 +7,30 @@ from model import NeuralNet
 from nltk_utils import bag_of_words, tokenize
 import speech_recognition as sr
 import pyttsx3
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.feature_extraction.text import TfidfVectorizer
+def fallback_response(user_input):
+    all_patterns = []
+    tags_list = []
 
+    for intent in intents['intents']:
+        for pattern in intent['patterns']:
+            all_patterns.append(pattern)
+            tags_list.append(intent['tag'])
+
+    vectorizer = TfidfVectorizer()
+    X = vectorizer.fit_transform(all_patterns + [user_input])
+
+    similarity = cosine_similarity(X[-1], X[:-1])
+    index = similarity.argmax()
+
+    best_tag = tags_list[index]
+
+    for intent in intents['intents']:
+        if intent['tag'] == best_tag:
+            return random.choice(intent['responses'])
+
+    return "I didn't understand."
 # Initialize Flask app
 app = Flask(__name__)
 
@@ -34,8 +57,9 @@ model.eval()
 recognizer = sr.Recognizer()
 
 # Function to get response from chatbot
-def get_response(sentence):
-    sentence = tokenize(sentence)
+def get_response(user_input):
+    sentence = tokenize(user_input)
+    
     X = bag_of_words(sentence, all_words)
     X = X.reshape(1, X.shape[0])
     X = torch.from_numpy(X)
@@ -47,7 +71,7 @@ def get_response(sentence):
 
     probs = torch.softmax(output, dim=1)
     prob = probs[0][predicted.item()]
-    if prob.item() > 0.75:
+    if prob.item() > 0.5:
         for intent in intents['intents']:
             if tag == intent["tag"]:
                 response = random.choice(intent['responses'])
@@ -60,7 +84,7 @@ def get_response(sentence):
                     return response_text
                 return response
     else:
-        return "I do not understand..."
+        return fallback_response(user_input)
 
 # Route for serving the chat interface
 @app.route('/')
