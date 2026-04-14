@@ -2,3 +2,4 @@ flask
 nltk
 scikit-learn
 torch
+waitress
