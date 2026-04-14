@@ -32,13 +32,17 @@ def fallback_response(user_input):
 # Initialize Flask app
 app = Flask(__name__)
 
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 # Load intents for the chatbot
-with open('intents.json', 'r') as json_data:
+with open(os.path.join(BASE_DIR, 'intents.json'), 'r') as json_data:
     intents = json.load(json_data)
 
 # Load the pre-trained model and its data
-FILE = "data.pth"
-data = torch.load(FILE)
+FILE = os.path.join(BASE_DIR, "data.pth")
+data = torch.load(FILE, weights_only=False)
 input_size = data["input_size"]
 hidden_size = data["hidden_size"]
 output_size = data["output_size"]
