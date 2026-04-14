@@ -113,4 +113,4 @@ def handle_speech():
         return jsonify({'response_text': "Sorry, I couldn't understand that.", 'response_speech': ""})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=10000)
