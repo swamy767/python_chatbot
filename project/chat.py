@@ -5,8 +5,6 @@ import json
 import torch
 from model import NeuralNet
 from nltk_utils import bag_of_words, tokenize
-import speech_recognition as sr
-import pyttsx3
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
 def fallback_response(user_input):
@@ -53,9 +51,6 @@ model = NeuralNet(input_size, hidden_size, output_size)
 model.load_state_dict(model_state)
 model.eval()
 
-# Initialize speech recognition
-recognizer = sr.Recognizer()
-
 # Function to get response from chatbot
 def get_response(user_input):
     sentence = tokenize(user_input)
@@ -97,20 +92,6 @@ def handle_message():
     message = request.form['msg']
     response_text = get_response(message)
     return jsonify({'response_text': response_text})
-
-# Route for handling speech input
-@app.route('/speech', methods=['POST'])
-def handle_speech():
-    with sr.Microphone() as source:
-        print("Speak Anything :")
-        audio = recognizer.listen(source)
-
-    try:
-        speech_text = recognizer.recognize_google(audio)
-        response = get_response(speech_text)
-        return jsonify({'response_text': response, 'response_speech': speech_text})
-    except:
-        return jsonify({'response_text': "Sorry, I couldn't understand that.", 'response_speech': ""})
 
 import os
 
