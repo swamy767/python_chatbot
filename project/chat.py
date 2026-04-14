@@ -1,8 +1,13 @@
+import os
+os.environ["OMP_NUM_THREADS"] = "1"
+os.environ["MKL_NUM_THREADS"] = "1"
+
 # Import the required libraries
 from flask import Flask, render_template, request, jsonify
 import random
 import json
 import torch
+torch.set_num_threads(1)
 from model import NeuralNet
 from nltk_utils import bag_of_words, tokenize
 from sklearn.metrics.pairwise import cosine_similarity
