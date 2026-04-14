@@ -2,7 +2,11 @@ import os
 import shutil
 import json
 import re
+import sqlite3
 from urllib.parse import quote
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(BASE_DIR, 'faq.db')
 
 SOURCE_DIR = r"C:\Users\LENOVO\OneDrive\Desktop\Question papre and notes"
 STATIC_DIR = r"static\notes"
@@ -92,8 +96,8 @@ try:
     html_3rd = process_folder("3rd year", "notes-3rd")
     html_pres = process_folder("presentation", "notes-pres")
 
-    with open("intents.json", "r") as f:
-        data = json.load(f)
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
 
     mappings = {
         "question_papers_2nd_year": {
@@ -110,31 +114,33 @@ try:
         }
     }
 
-    existing_tags = [i["tag"] for i in data["intents"]]
-
     for intent_tag, info in mappings.items():
         html_content = info["html"]
         if not html_content: continue
         
-        if intent_tag not in existing_tags:
-            data["intents"].append({
-                "tag": intent_tag,
-                "patterns": info["patterns"],
-                "responses": [html_content],
-                "context_set": ""
-            })
+        cursor.execute("SELECT patterns FROM intents WHERE tag = ?", (intent_tag,))
+        row = cursor.fetchone()
+        
+        if row is None:
+            cursor.execute(
+                "INSERT INTO intents (tag, patterns, responses) VALUES (?, ?, ?)",
+                (intent_tag, json.dumps(info["patterns"]), json.dumps([html_content]))
+            )
         else:
-            for i in data["intents"]:
-                if i["tag"] == intent_tag:
-                    # Merge patterns to ensure old patterns still work, but extend with Dropdown ones
-                    current_patterns = set(i.get("patterns", []))
-                    current_patterns.update(info["patterns"])
-                    i["patterns"] = list(current_patterns)
-                    i["responses"] = [html_content]
+            # Merge patterns
+            current_patterns = set(json.loads(row[0]))
+            current_patterns.update(info["patterns"])
+            new_patterns_str = json.dumps(list(current_patterns))
+            new_responses_str = json.dumps([html_content])
+            
+            cursor.execute(
+                "UPDATE intents SET patterns = ?, responses = ? WHERE tag = ?",
+                (new_patterns_str, new_responses_str, intent_tag)
+            )
 
-    with open("intents.json", "w") as f:
-        json.dump(data, f, indent=2)
+    conn.commit()
+    conn.close()
 
-    print("Notes synced and intents.json updated successfully.")
+    print("Notes synced and faq.db updated successfully.")
 except Exception as e:
     print(f"Error occurred: {e}")

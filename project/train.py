@@ -9,8 +9,26 @@ from torch.utils.data import Dataset, DataLoader
 from nltk_utils import bag_of_words, tokenize, lemmatize  # Changed: Importing lemmatize instead of stem
 from model import NeuralNet
 
-with open('intents.json', 'r') as f:
-    intents = json.load(f)
+import os
+import sqlite3
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(BASE_DIR, 'faq.db')
+
+conn = sqlite3.connect(DB_PATH)
+cursor = conn.cursor()
+cursor.execute("SELECT tag, patterns FROM intents")
+rows = cursor.fetchall()
+conn.close()
+
+# Reconstruct intents for training loop
+intents = {'intents': []}
+for row in rows:
+    tag, patterns_str = row
+    intents['intents'].append({
+        'tag': tag,
+        'patterns': json.loads(patterns_str)
+    })
 
 all_words = []
 tags = []

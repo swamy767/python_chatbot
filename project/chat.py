@@ -15,6 +15,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 def fallback_response(user_input):
     all_patterns = []
     tags_list = []
+    
+    intents = fetch_all_intents()
 
     for intent in intents['intents']:
         for pattern in intent['patterns']:
@@ -38,12 +40,27 @@ def fallback_response(user_input):
 app = Flask(__name__)
 
 import os
+import sqlite3
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(BASE_DIR, 'faq.db')
 
-# Load intents for the chatbot
-with open(os.path.join(BASE_DIR, 'intents.json'), 'r') as json_data:
-    intents = json.load(json_data)
+def fetch_all_intents():
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    cursor.execute("SELECT tag, patterns, responses FROM intents")
+    rows = cursor.fetchall()
+    conn.close()
+    
+    intents = {'intents': []}
+    for row in rows:
+        tag, patterns_str, responses_str = row
+        intents['intents'].append({
+            'tag': tag,
+            'patterns': json.loads(patterns_str),
+            'responses': json.loads(responses_str)
+        })
+    return intents
 
 # Load the pre-trained model and its data
 FILE = os.path.join(BASE_DIR, "data.pth")
@@ -76,17 +93,23 @@ def get_response(user_input):
     probs = torch.softmax(output, dim=1)
     prob = probs[0][predicted.item()]
     if prob.item() > 0.5:
-        for intent in intents['intents']:
-            if tag == intent["tag"]:
-                response = random.choice(intent['responses'])
-                if isinstance(response, dict) and "faculty" in response:
-                    response_text = ""
-                    for f in response["faculty"]:
-                        response_text += f"Name: {f['name']}<br>"
-                        response_text += f"Qualification: {f['qualification']}<br>"
-                        response_text += f"Designation: {f['designation']}<br><br>"
-                    return response_text
-                return response
+        conn = sqlite3.connect(DB_PATH)
+        cursor = conn.cursor()
+        cursor.execute("SELECT responses FROM intents WHERE tag = ?", (tag,))
+        row = cursor.fetchone()
+        conn.close()
+
+        if row:
+            responses = json.loads(row[0])
+            response = random.choice(responses)
+            if isinstance(response, dict) and "faculty" in response:
+                response_text = ""
+                for f in response["faculty"]:
+                    response_text += f"Name: {f['name']}<br>"
+                    response_text += f"Qualification: {f['qualification']}<br>"
+                    response_text += f"Designation: {f['designation']}<br><br>"
+                return response_text
+            return response
     else:
         return fallback_response(user_input)
 
