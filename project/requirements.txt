@@ -2,3 +2,4 @@ flask
 nltk
 scikit-learn
 SpeechRecognition
+torch==2.0.0
