@@ -2,11 +2,9 @@ import os
 import shutil
 import json
 import re
-import sqlite3
 from urllib.parse import quote
-
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(BASE_DIR, 'faq.db')
+INTENTS_PATH = os.path.join(BASE_DIR, 'intents.json')
 
 SOURCE_DIR = r"C:\Users\LENOVO\OneDrive\Desktop\Question papre and notes"
 STATIC_DIR = r"static\notes"
@@ -96,8 +94,8 @@ try:
     html_3rd = process_folder("3rd year", "notes-3rd")
     html_pres = process_folder("presentation", "notes-pres")
 
-    conn = sqlite3.connect(DB_PATH)
-    cursor = conn.cursor()
+    with open(INTENTS_PATH, 'r', encoding='utf-8') as f:
+        intents_data = json.load(f)
 
     mappings = {
         "question_papers_2nd_year": {
@@ -118,29 +116,27 @@ try:
         html_content = info["html"]
         if not html_content: continue
         
-        cursor.execute("SELECT patterns FROM intents WHERE tag = ?", (intent_tag,))
-        row = cursor.fetchone()
+        found = False
+        for intent in intents_data['intents']:
+            if intent['tag'] == intent_tag:
+                found = True
+                # Merge patterns
+                current_patterns = set(intent['patterns'])
+                current_patterns.update(info["patterns"])
+                intent['patterns'] = list(current_patterns)
+                intent['responses'] = [html_content]
+                break
         
-        if row is None:
-            cursor.execute(
-                "INSERT INTO intents (tag, patterns, responses) VALUES (?, ?, ?)",
-                (intent_tag, json.dumps(info["patterns"]), json.dumps([html_content]))
-            )
-        else:
-            # Merge patterns
-            current_patterns = set(json.loads(row[0]))
-            current_patterns.update(info["patterns"])
-            new_patterns_str = json.dumps(list(current_patterns))
-            new_responses_str = json.dumps([html_content])
-            
-            cursor.execute(
-                "UPDATE intents SET patterns = ?, responses = ? WHERE tag = ?",
-                (new_patterns_str, new_responses_str, intent_tag)
-            )
+        if not found:
+            intents_data['intents'].append({
+                'tag': intent_tag,
+                'patterns': info["patterns"],
+                'responses': [html_content]
+            })
 
-    conn.commit()
-    conn.close()
+    with open(INTENTS_PATH, 'w', encoding='utf-8') as f:
+        json.dump(intents_data, f, indent=4)
 
-    print("Notes synced and faq.db updated successfully.")
+    print("Notes synced and intents.json updated successfully.")
 except Exception as e:
     print(f"Error occurred: {e}")

@@ -40,27 +40,13 @@ def fallback_response(user_input):
 app = Flask(__name__)
 
 import os
-import sqlite3
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(BASE_DIR, 'faq.db')
+INTENTS_PATH = os.path.join(BASE_DIR, 'intents.json')
 
 def fetch_all_intents():
-    conn = sqlite3.connect(DB_PATH)
-    cursor = conn.cursor()
-    cursor.execute("SELECT tag, patterns, responses FROM intents")
-    rows = cursor.fetchall()
-    conn.close()
-    
-    intents = {'intents': []}
-    for row in rows:
-        tag, patterns_str, responses_str = row
-        intents['intents'].append({
-            'tag': tag,
-            'patterns': json.loads(patterns_str),
-            'responses': json.loads(responses_str)
-        })
-    return intents
+    with open(INTENTS_PATH, 'r', encoding='utf-8') as f:
+        return json.load(f)
 
 # Load the pre-trained model and its data
 FILE = os.path.join(BASE_DIR, "data.pth")
@@ -93,23 +79,20 @@ def get_response(user_input):
     probs = torch.softmax(output, dim=1)
     prob = probs[0][predicted.item()]
     if prob.item() > 0.5:
-        conn = sqlite3.connect(DB_PATH)
-        cursor = conn.cursor()
-        cursor.execute("SELECT responses FROM intents WHERE tag = ?", (tag,))
-        row = cursor.fetchone()
-        conn.close()
-
-        if row:
-            responses = json.loads(row[0])
-            response = random.choice(responses)
-            if isinstance(response, dict) and "faculty" in response:
-                response_text = ""
-                for f in response["faculty"]:
-                    response_text += f"Name: {f['name']}<br>"
-                    response_text += f"Qualification: {f['qualification']}<br>"
-                    response_text += f"Designation: {f['designation']}<br><br>"
-                return response_text
-            return response
+        intents = fetch_all_intents()
+        for intent in intents['intents']:
+            if intent['tag'] == tag:
+                responses = intent['responses']
+                response = random.choice(responses)
+                
+                if isinstance(response, dict) and "faculty" in response:
+                    response_text = ""
+                    for f in response["faculty"]:
+                        response_text += f"Name: {f['name']}<br>"
+                        response_text += f"Qualification: {f['qualification']}<br>"
+                        response_text += f"Designation: {f['designation']}<br><br>"
+                    return response_text
+                return response
     else:
         return fallback_response(user_input)
 
@@ -125,10 +108,5 @@ def handle_message():
     response_text = get_response(message)
     return jsonify({'response_text': response_text})
 
-import os
-
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 10000))
-    from waitress import serve
-    print(f"Starting production server on port {port}...")
-    serve(app, host="0.0.0.0", port=port)
+    app.run(debug=True)
