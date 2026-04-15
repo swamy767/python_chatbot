@@ -2,11 +2,18 @@ import numpy as np
 import nltk
 from nltk.stem import WordNetLemmatizer
 
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+NLTK_DATA_DIR = os.path.join(BASE_DIR, "nltk_data")
+os.makedirs(NLTK_DATA_DIR, exist_ok=True)
+nltk.data.path.append(NLTK_DATA_DIR)
+
 # Auto-download required NLTK resources for cloud deployment
-nltk.download('punkt', quiet=True)
-nltk.download('punkt_tab', quiet=True)
-nltk.download('wordnet', quiet=True)
-nltk.download('omw-1.4', quiet=True)
+nltk.download('punkt', download_dir=NLTK_DATA_DIR, quiet=True)
+nltk.download('punkt_tab', download_dir=NLTK_DATA_DIR, quiet=True)
+nltk.download('wordnet', download_dir=NLTK_DATA_DIR, quiet=True)
+nltk.download('omw-1.4', download_dir=NLTK_DATA_DIR, quiet=True)
 
 # Initialize the WordNet lemmatizer
 lemmatizer = WordNetLemmatizer()
