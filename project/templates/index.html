@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>SSIT ECE Chatbot</title>
     <!-- Add FontAwesome and external fonts -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
@@ -401,15 +402,83 @@
         }
 
         @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40%           { transform: scale(1); }
+        }
 
-            0%,
-            80%,
-            100% {
-                transform: scale(0);
+        /* ── Mobile Responsive ───────────────────────────────────────────── */
+        @media (max-width: 640px) {
+            body, html {
+                height: 100%;
+                overflow: hidden; /* prevent double scroll bars */
             }
 
-            40% {
-                transform: scale(1);
+            .app-container {
+                padding: 0;          /* remove desktop padding */
+                align-items: stretch;
+                height: 100vh;
+                height: 100dvh;      /* dynamic viewport on mobile browsers */
+            }
+
+            .chat-card {
+                max-width: 100%;     /* full width */
+                height: 100vh;
+                height: 100dvh;      /* fills the whole screen */
+                border-radius: 0;    /* no rounded corners on phone edge */
+                border: none;
+            }
+
+            .chat-header {
+                padding: 12px 15px;
+            }
+
+            .bot-avatar {
+                width: 40px;
+                height: 40px;
+            }
+
+            .bot-info h2 {
+                font-size: 1rem;
+            }
+
+            .bot-info p {
+                font-size: 0.75rem;
+            }
+
+            .category-section {
+                padding: 10px 12px;
+            }
+
+            .sub-options-container {
+                padding: 10px 12px 4px;
+            }
+
+            .chat-body {
+                padding: 12px;
+                gap: 10px;
+            }
+
+            .message-wrapper {
+                max-width: 90%;
+            }
+
+            .message-bubble {
+                font-size: 0.9rem;
+                padding: 10px 13px;
+            }
+
+            .chat-footer {
+                padding: 10px 12px;
+            }
+
+            .type_msg {
+                font-size: 0.9rem;
+                padding: 8px 10px;
+            }
+
+            .action-btn {
+                width: 38px;
+                height: 38px;
             }
         }
     </style>
