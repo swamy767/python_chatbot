@@ -1,6 +1,6 @@
 flask
 nltk
 scikit-learn
-torch
-waitress
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.2.2+cpu
 gunicorn
