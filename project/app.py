@@ -115,4 +115,7 @@ def handle_message():
         return jsonify({'response_text': error_msg})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Disable debug=True on Render to prevent double process memory OOM
+    # Bind to 0.0.0.0 and the PORT environment variable to allow Render's port detection
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)
