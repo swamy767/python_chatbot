@@ -15,6 +15,7 @@ from model import NeuralNet
 from nltk_utils import bag_of_words, tokenize
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
+import wikipedia
 
 # ── Paths ──────────────────────────────────────────────────────────────────────
 BASE_DIR     = os.path.dirname(os.path.abspath(__file__))
@@ -51,20 +52,50 @@ def fallback_response(user_input):
             all_patterns.append(pattern)
             tags_list.append(intent["tag"])
 
-    vectorizer = TfidfVectorizer()
+    vectorizer = TfidfVectorizer(stop_words='english')
     X          = vectorizer.fit_transform(all_patterns + [user_input])
     similarity = cosine_similarity(X[-1], X[:-1])
+    
+    max_sim = similarity.max()
+    if max_sim < 0.2:
+        return "I am sorry, I am just an academic helper bot and I do not have an answer for that. Can you please rephrase or ask something else?"
+
     best_tag   = tags_list[similarity.argmax()]
 
     for intent in intents_data["intents"]:
         if intent["tag"] == best_tag:
             return random.choice(intent["responses"])
 
-    return "I didn't understand that. Please try rephrasing."
+    return "I didn't fully understand your question. Can you please explain it again?"
 
 
 # ── Core chatbot response function ────────────────────────────────────────────
 def get_response(user_input):
+    lower_input = user_input.lower().strip()
+    
+    # Removed hardcoded conversational rules to allow NN prediction
+        
+    # 6. Learning Behavior Rule: Extend knowledge
+    if lower_input.startswith("learn:"):
+        parts = user_input[6:].split("|")
+        if len(parts) == 2:
+            question = parts[0].strip()
+            answer = parts[1].strip()
+            if question and answer:
+                new_intent = {
+                    "tag": f"learned_{random.randint(10000, 99999)}",
+                    "patterns": [question],
+                    "responses": [answer]
+                }
+                intents_data["intents"].append(new_intent)
+                try:
+                    with open(INTENTS_PATH, "w", encoding="utf-8") as f:
+                        json.dump(intents_data, f, indent=4)
+                    return f"Thank you! I have learned the answer to: '{question}'"
+                except Exception as e:
+                    return "I had trouble saving the new knowledge. Data safety rule enforced."
+        return "To teach me, use this format: 'Learn: <question> | <answer>'"
+
     sentence = tokenize(user_input)
     X        = bag_of_words(sentence, all_words)
     X        = torch.from_numpy(X.reshape(1, -1))
@@ -74,7 +105,7 @@ def get_response(user_input):
     tag          = tags[predicted.item()]
     prob         = torch.softmax(output, dim=1)[0][predicted.item()].item()
 
-    if prob > 0.5:
+    if prob > 0.75:
         for intent in intents_data["intents"]:
             if intent["tag"] == tag:
                 response = random.choice(intent["responses"])

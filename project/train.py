@@ -59,8 +59,8 @@ X_train = np.array(X_train)
 y_train = np.array(y_train)
 
 # Hyper-parameters
-num_epochs = 1000
-batch_size = 8
+num_epochs = 100
+batch_size = 128
 learning_rate = 0.001
 input_size = len(X_train[0])
 hidden_size = 8
@@ -125,7 +125,7 @@ data = {
     "tags": tags
 }
 
-FILE = "data.pth"
+FILE = os.path.join(BASE_DIR, "data.pth")
 torch.save(data, FILE)
 
 print(f'training complete. file saved to {FILE}')

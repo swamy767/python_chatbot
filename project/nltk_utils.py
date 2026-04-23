@@ -18,9 +18,10 @@ except LookupError:
 lemmatizer = WordNetLemmatizer()
 
 
+import re
 def tokenize(sentence):
-    """Split sentence into array of words/tokens."""
-    return nltk.word_tokenize(sentence)
+    """Split sentence into array of words/tokens using fast regex."""
+    return re.findall(r'\w+', sentence.lower())
 
 
 def stem(word):
@@ -29,9 +30,13 @@ def stem(word):
     return stemmer.stem(word.lower())
 
 
+memo = {}
 def lemmatize(word):
     """Return the lemmatized (base) form of a word."""
-    return lemmatizer.lemmatize(word.lower())
+    w = word.lower()
+    if w not in memo:
+        memo[w] = lemmatizer.lemmatize(w)
+    return memo[w]
 
 
 def bag_of_words(tokenized_sentence, words):
@@ -39,9 +44,9 @@ def bag_of_words(tokenized_sentence, words):
     Return a bag-of-words array:
     1 for each known word that exists in the sentence, 0 otherwise.
     """
-    sentence_words = [lemmatize(w.lower()) for w in tokenized_sentence if w.isalnum()]
+    sentence_words = set([lemmatize(w.lower()) for w in tokenized_sentence if w.isalnum()])
     bag = np.zeros(len(words), dtype=np.float32)
     for idx, w in enumerate(words):
         if w in sentence_words:
-            bag[idx] = 1
+            bag[idx] = 1.0
     return bag
