@@ -481,6 +481,56 @@
                 height: 38px;
             }
         }
+        /* ─── Add Notes Inline Panel ───────────────────────────────────────── */
+        .add-notes-panel {
+            display: none;
+            padding: 12px 20px 14px;
+            background: rgba(0,0,0,0.2);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .add-notes-panel.open { display: block; }
+        .anp-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+        .anp-row input, .anp-row select, .anp-row textarea {
+            flex: 1;
+            min-width: 120px;
+            appearance: none;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(139,92,246,0.3);
+            border-radius: 12px;
+            padding: 10px 14px;
+            color: #f8fafc;
+            font-family: inherit;
+            font-size: 0.9rem;
+            box-sizing: border-box;
+        }
+        .anp-row input:focus, .anp-row select:focus, .anp-row textarea:focus {
+            outline: none;
+            border-color: #8b5cf6;
+        }
+        .anp-row input::placeholder, .anp-row textarea::placeholder { color: #64748b; }
+        .anp-row select option { background: #1e293b; }
+        .anp-row textarea { resize: none; height: 62px; }
+        .anp-footer { display: flex; gap: 8px; align-items: center; }
+        .anp-submit {
+            appearance: none;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(139,92,246,0.3);
+            border-radius: 12px;
+            padding: 10px 18px;
+            color: #f8fafc;
+            font-family: inherit;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        .anp-submit:hover { background: rgba(139,92,246,0.2); }
+        .anp-msg { font-size: 0.82rem; }
+        .anp-msg.ok  { color: #10b981; }
+        .anp-msg.err { color: #ef4444; }
     </style>
 </head>
 
@@ -517,6 +567,7 @@
                 <!-- Buttons populated via JS -->
             </div>
 
+
             <!-- Chat Messages -->
             <div id="chatBody" class="chat-body">
                 <!-- Messages go here -->
@@ -549,6 +600,8 @@
             </div>
         </div>
     </div>
+
+
 
     <script>
         $(document).ready(function () {
@@ -583,7 +636,8 @@
                 "Faculty": ["Professors", "Associate Professors", "Assistant Professors", "Overall"],
                 "Location": ["Address", "Map", "Transport", "Overall"],
                 "Question Papers and Notes": ["1st Year", "2nd Year", "3rd Year", "4th Year"],
-                "Presentations": ["Major Project", "Technical Seminar", "Overall"]
+                "Presentations": ["Major Project", "Technical Seminar", "Overall"],
+                "Manage Notes (Lecturers Only)": ["__add_notes__"]
             };
 
             // Populate Categories
@@ -598,6 +652,209 @@
                 const subOptionsContainer = $("#subOptionsContainer");
                 subOptionsContainer.empty();
 
+                // ── Manage Notes teacher panel ──────────────────────────────────
+                if (selectedCat === "Manage Notes (Lecturers Only)") {
+                    subOptionsContainer.show();
+                    var verifiedPw = null;
+
+                    // Step 1: password
+                    var step1Html = `
+                        <div id="anpStep1" style="width:100%;padding:4px 0;">
+                            <div class="anp-row">
+                                <input type="password" id="anpPassword" placeholder="Lecturer password..." autocomplete="off">
+                                <button class="anp-submit" id="anpVerifyBtn">Unlock</button>
+                            </div>
+                            <div class="anp-footer"><span class="anp-msg" id="anpPwMsg"></span></div>
+                        </div>`;
+
+                    // Step 2: choose action
+                    var step2Html = `
+                        <div id="anpStep2" style="width:100%;padding:4px 0;display:none;">
+                            <div class="anp-row">
+                                <button class="anp-submit" id="anpChooseAdd" style="flex:1;">&#43; Add Note</button>
+                                <button class="anp-submit" id="anpChooseDel" style="flex:1;">&#128465; Delete Note</button>
+                            </div>
+                        </div>`;
+
+                    // Step 3a: Add form
+                    var step3AddHtml = `
+                        <div id="anpStep3Add" style="width:100%;padding:4px 0;display:none;">
+                            <div style="margin-bottom:8px;">
+                                <button id="anpBackFromAdd" style="background:none;border:none;color:#a78bfa;font-size:0.82rem;cursor:pointer;padding:0;font-family:inherit;">&#8592; Back to options</button>
+                            </div>
+                            <div class="anp-row">
+                                <select id="anpYear">
+                                    <option value="">-- Select Year --</option>
+                                    <option value="1st year">1st Year</option>
+                                    <option value="2nd year">2nd Year</option>
+                                    <option value="3rd year">3rd Year</option>
+                                    <option value="4th year">4th Year</option>
+                                </select>
+                                <input type="text" id="anpSubject" placeholder="Subject name...">
+                            </div>
+                            <div class="anp-row">
+                                <input type="file" id="anpFile" accept=".pdf,.doc,.docx,.ppt,.pptx,.txt" style="color:#94a3b8;cursor:pointer;">
+                            </div>
+                            <div class="anp-row" style="margin-top:0;">
+                                <textarea id="anpContent" placeholder="OR paste a text note / link (optional if file selected)"></textarea>
+                            </div>
+                            <div class="anp-footer">
+                                <button class="anp-submit" id="anpSubmitBtn">Upload &amp; Add Note</button>
+                                <span class="anp-msg" id="anpFormMsg"></span>
+                            </div>
+                        </div>`;
+
+                    // Step 3b: Delete panel
+                    var step3DelHtml = `
+                        <div id="anpStep3Del" style="width:100%;padding:4px 0;display:none;">
+                            <div style="margin-bottom:8px;">
+                                <button id="anpBackFromDel" style="background:none;border:none;color:#a78bfa;font-size:0.82rem;cursor:pointer;padding:0;font-family:inherit;">&#8592; Back to options</button>
+                            </div>
+                            <div class="anp-row">
+                                <select id="anpDelYear">
+                                    <option value="">-- Select Year --</option>
+                                    <option value="1st year">1st Year</option>
+                                    <option value="2nd year">2nd Year</option>
+                                    <option value="3rd year">3rd Year</option>
+                                    <option value="4th year">4th Year</option>
+                                </select>
+                                <button class="anp-submit" id="anpLoadNotes">Load Notes</button>
+                            </div>
+                            <div id="anpNotesList" style="width:100%;margin-top:6px;"></div>
+                            <div class="anp-footer"><span class="anp-msg" id="anpDelMsg"></span></div>
+                        </div>`;
+
+                    subOptionsContainer.html(step1Html + step2Html + step3AddHtml + step3DelHtml);
+
+                    // ── Password verify
+                    $("#anpPassword").on("keydown", function(e) {
+                        if (e.key === "Enter") $("#anpVerifyBtn").trigger("click");
+                    });
+                    $("#anpVerifyBtn").on("click", function() {
+                        var pw  = $("#anpPassword").val().trim();
+                        var msg = $("#anpPwMsg");
+                        if (!pw) { msg.text("Enter password.").attr("class","anp-msg err"); return; }
+                        fetch("/add_note", {
+                            method: "POST",
+                            headers: {"Content-Type": "application/json"},
+                            body: JSON.stringify({ password: pw, year: "", subject: "", content: "" })
+                        }).then(r => r.json()).then(function(data) {
+                            if (data.success || (data.error && data.error.indexOf("password") === -1)) {
+                                verifiedPw = pw;
+                                $("#anpStep1").hide();
+                                $("#anpStep2").show();
+                            } else {
+                                msg.text(data.error || "Wrong password.").attr("class","anp-msg err");
+                            }
+                        }).catch(function() { msg.text("Server not reachable.").attr("class","anp-msg err"); });
+                    });
+
+                    // ── Choose Add
+                    $(document).on("click", "#anpChooseAdd", function() {
+                        $("#anpStep2").hide();
+                        $("#anpStep3Add").show();
+                    });
+
+                    // ── Choose Delete
+                    $(document).on("click", "#anpChooseDel", function() {
+                        $("#anpStep2").hide();
+                        $("#anpStep3Del").show();
+                    });
+
+                    // ── Back buttons (return to Add/Delete choice without re-entering password)
+                    $(document).on("click", "#anpBackFromAdd", function() {
+                        $("#anpStep3Add").hide();
+                        $("#anpStep2").show();
+                    });
+                    $(document).on("click", "#anpBackFromDel", function() {
+                        $("#anpStep3Del").hide();
+                        $("#anpNotesList").empty();
+                        $("#anpDelMsg").text("").attr("class","anp-msg");
+                        $("#anpStep2").show();
+                    });
+
+                    // ── Submit Add Note (file upload via FormData)
+                    $(document).on("click", "#anpSubmitBtn", function() {
+                        var year    = $("#anpYear").val().trim();
+                        var subject = $("#anpSubject").val().trim();
+                        var content = $("#anpContent").val().trim();
+                        var fileEl  = document.getElementById("anpFile");
+                        var file    = fileEl && fileEl.files[0];
+                        var msg     = $("#anpFormMsg");
+                        if (!year)    { msg.text("Select a year.").attr("class","anp-msg err"); return; }
+                        if (!subject) { msg.text("Enter subject name.").attr("class","anp-msg err"); return; }
+                        if (!file && !content) { msg.text("Upload a file OR enter text/link.").attr("class","anp-msg err"); return; }
+                        var btn = $("#anpSubmitBtn");
+                        btn.text("Uploading...").prop("disabled", true);
+                        var fd = new FormData();
+                        fd.append("password", verifiedPw);
+                        fd.append("year",     year);
+                        fd.append("subject",  subject);
+                        if (content) fd.append("content", content);
+                        if (file)    fd.append("file",    file);
+                        fetch("/add_note", { method: "POST", body: fd })
+                        .then(r => r.json()).then(function(data) {
+                            btn.text("Upload & Add Note").prop("disabled", false);
+                            if (data.success) {
+                                msg.text("\u2705 " + data.message).attr("class","anp-msg ok");
+                                $("#anpSubject, #anpContent, #anpYear").val("");
+                                if (fileEl) fileEl.value = "";
+                            } else {
+                                msg.text(data.error || "Failed.").attr("class","anp-msg err");
+                            }
+                        }).catch(function() {
+                            btn.text("Upload & Add Note").prop("disabled", false);
+                            msg.text("Server error.").attr("class","anp-msg err");
+                        });
+                    });
+
+                    // ── Load notes for delete
+                    $(document).on("click", "#anpLoadNotes", function() {
+                        var year = $("#anpDelYear").val().trim();
+                        var msg  = $("#anpDelMsg");
+                        if (!year) { msg.text("Select a year first.").attr("class","anp-msg err"); return; }
+                        fetch("/get_notes", {
+                            method: "POST",
+                            headers: {"Content-Type": "application/json"},
+                            body: JSON.stringify({ password: verifiedPw, year: year })
+                        }).then(r => r.json()).then(function(data) {
+                            msg.text("").attr("class","anp-msg");
+                            var list = $("#anpNotesList");
+                            list.empty();
+                            if (!data.success) { msg.text(data.error).attr("class","anp-msg err"); return; }
+                            if (data.notes.length === 0) {
+                                list.html('<p style="color:#64748b;font-size:0.85rem;">No added notes found for this year.</p>');
+                                return;
+                            }
+                            data.notes.forEach(function(note, idx) {
+                                var label = note.subject + (note.added_on ? ' (' + note.added_on + ')' : '');
+                                var row = $('<div style="display:flex;gap:8px;align-items:center;margin-bottom:6px;"></div>');
+                                row.append($('<span style="flex:1;font-size:0.85rem;color:#f1f5f9;"></span>').text(label));
+                                var delBtn = $('<button class="anp-submit" style="padding:6px 12px;font-size:0.8rem;">Delete</button>');
+                                delBtn.on("click", function() {
+                                    if (!confirm('Delete "' + note.subject + '"? This cannot be undone.')) return;
+                                    fetch("/delete_note", {
+                                        method: "POST",
+                                        headers: {"Content-Type": "application/json"},
+                                        body: JSON.stringify({ password: verifiedPw, year: year, index: idx })
+                                    }).then(r => r.json()).then(function(d) {
+                                        if (d.success) {
+                                            row.remove();
+                                            msg.text("Deleted successfully.").attr("class","anp-msg ok");
+                                        } else {
+                                            msg.text(d.error || "Failed.").attr("class","anp-msg err");
+                                        }
+                                    });
+                                });
+                                row.append(delBtn);
+                                list.append(row);
+                            });
+                        }).catch(function() { $("#anpDelMsg").text("Server error.").attr("class","anp-msg err"); });
+                    });
+
+                    return;
+                }
+                // ── Normal categories ────────────────────────────────────────
                 if (selectedCat && categories[selectedCat]) {
                     subOptionsContainer.show();
                     categories[selectedCat].forEach(function (subOpt) {
@@ -605,7 +862,6 @@
                             .addClass("sub-option-btn")
                             .text(subOpt)
                             .on("click", function () {
-                                // User clicked a sub-option, process it as a message
                                 const comboMessage = selectedCat + " - " + subOpt;
                                 processMessage(comboMessage);
                             });
@@ -782,6 +1038,82 @@
                 }
             });
         };
+
+        // ─── Add Notes Inline Panel Logic ────────────────────────────────────
+        (function() {
+            var verifiedPw = null;
+
+            // Toggle panel open when "Presentations" sub-option area is visible
+            // Panel is always visible below subOptionsContainer; open it via category select change
+            // Actually: show panel whenever category section is shown
+            // We open it permanently so teacher can always scroll down to it
+            document.getElementById('addNotesPanel').classList.add('open');
+
+            // Password verify
+            function setMsg(el, text, cls) { el.textContent = text; el.className = 'anp-msg ' + cls; }
+
+            document.getElementById('anpPassword').addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') document.getElementById('anpVerifyBtn').click();
+            });
+
+            document.getElementById('anpVerifyBtn').addEventListener('click', function() {
+                var pw  = document.getElementById('anpPassword').value.trim();
+                var msg = document.getElementById('anpPwMsg');
+                if (!pw) { setMsg(msg, 'Enter password.', 'err'); return; }
+                fetch('/add_note', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ password: pw, year: '', subject: '', content: '' })
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    if (data.success || (data.error && data.error.indexOf('password') === -1)) {
+                        verifiedPw = pw;
+                        document.getElementById('anpStep1').style.display = 'none';
+                        document.getElementById('anpStep2').style.display = 'block';
+                    } else {
+                        setMsg(msg, data.error || 'Wrong password.', 'err');
+                    }
+                })
+                .catch(function() { setMsg(msg, 'Server not reachable.', 'err'); });
+            });
+
+            // Submit note
+            document.getElementById('anpSubmitBtn').addEventListener('click', function() {
+                var year    = document.getElementById('anpYear').value.trim();
+                var subject = document.getElementById('anpSubject').value.trim();
+                var content = document.getElementById('anpContent').value.trim();
+                var msg     = document.getElementById('anpFormMsg');
+                if (!year)    { setMsg(msg, 'Select a year.', 'err'); return; }
+                if (!subject) { setMsg(msg, 'Enter subject name.', 'err'); return; }
+                if (!content) { setMsg(msg, 'Enter content or link.', 'err'); return; }
+                var btn = document.getElementById('anpSubmitBtn');
+                btn.textContent = 'Saving...';
+                btn.disabled = true;
+                fetch('/add_note', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ password: verifiedPw, year: year, subject: subject, content: content })
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    btn.textContent = 'Add Note';
+                    btn.disabled = false;
+                    if (data.success) {
+                        setMsg(msg, 'Saved! Note added to ' + year + '.', 'ok');
+                        document.getElementById('anpSubject').value = '';
+                        document.getElementById('anpContent').value = '';
+                        document.getElementById('anpYear').value = '';
+                    } else {
+                        setMsg(msg, data.error || 'Failed.', 'err');
+                    }
+                })
+                .catch(function() {
+                    btn.textContent = 'Add Note'; btn.disabled = false;
+                    setMsg(msg, 'Server error.', 'err');
+                });
+            });
+        })();
     </script>
 </body>
 
